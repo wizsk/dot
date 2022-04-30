@@ -1,0 +1,8 @@
+#!/bin/bash
+picom --backend glx &
+
+xwallpaper --zoom $HOME/pix/wall/pc3.1-01.jpg &
+sxhkd &
+dwmblocks &
+dunst &
+exec dwm
