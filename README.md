@@ -7,5 +7,6 @@ ls -A
 
 ## To copy just do
 ```bash
-git clone https://github.com/skbhr/dotfiles
+https://github.com/sakibulxyz/dotfiles
 ```
+### Then copy them to right place
