@@ -1,0 +1,14 @@
+super + B
+	brave
+
+alt + {a, s, d}
+	 backl {-A 10,-S 4, -U 10}
+
+alt + p
+	maim | tee ~/pix/srs/$( date +%s ).png | xclip -selection clipboard -t image/png && notify-send -t 500 " SS taken" " ok?"
+
+alt + shift + p
+	maim --select | tee ~/pix/srs/$( date +%s ).png | xclip -selection clipboard -t image/png && notify-send -t 500 " SS taken" " ok?"
+
+alt + {0, 9, 8}
+	volume { up, down ,mute }
