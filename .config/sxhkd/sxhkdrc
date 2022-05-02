@@ -1,8 +1,19 @@
 super + B
 	brave
 
+super + shift + o
+	[ $(echo "no\nyes-poweroff" | dmenu ) = yes-poweroff ] && poweroff
+
+super + shift + r
+	[ $(echo "no\nyes-reboot" | dmenu ) = yes-reboot ] && reboot
+
+
 alt + {a, s, d}
 	 backl {-A 10,-S 4, -U 10}
+
+super + shift + l
+	var=$( echo "10\n20\n30\n40\n50\n60\n70\n80\n90\n100" | dmenu ) ; [ ! -z "$var" ] && light -S $var && notify-send -t 800 -u low "$var%" "Brghtness set"
+
 
 alt + p
 	maim | tee ~/pix/srs/$( date +%s ).png | xclip -selection clipboard -t image/png && notify-send -t 500 " SS taken" " ok?"
@@ -12,3 +23,4 @@ alt + shift + p
 
 alt + {0, 9, 8}
 	volume { up, down ,mute }
+

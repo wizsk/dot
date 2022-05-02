@@ -1,0 +1,33 @@
+# bluetooth things
+
+bluez bluez-utls
+
+#cmd lsmod  | grep btusb
+# if somesitng poops up then its loaded
+# if not # cmd modprobe btusb
+sudo systemctl start bluetooth.service
+sudo systemctl enable bluetooth.service #auto load each time
+
+
+# done 
+# connect wiht
+
+bluetoothctl
+  power on
+  agent on
+  defautl-agent
+
+sudo nvim /etc/bluetooth/main.conf
+	change last line to true
+	i mean auto enable
+
+
+# for audio 
+
+pulseaudio-bluetooth # install it
+
+pulsemixer # contoring sound and stuff
+
+
+bluetoothctl power on
+
