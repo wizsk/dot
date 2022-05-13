@@ -10,12 +10,10 @@ setopt interactive_comments
 # History in cache directory:
 HISTSIZE=10000000
 SAVEHIST=10000000
-HISTFILE=~/.cache/zsh/history
+HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
 
 # Load aliases and shortcuts if existent.
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc"
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc"
+#[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -53,25 +51,112 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # Use lf to switch directories and bind it to ctrl-o
 lfcd () {
-    tmp="$(mktemp)"
+    tmp="$(mktemp -uq)"
+    trap 'rm -f $tmp >/dev/null 2>&1' HUP INT QUIT TERM PWR EXIT
     lf -last-dir-path="$tmp" "$@"
     if [ -f "$tmp" ]; then
         dir="$(cat "$tmp")"
-        rm -f "$tmp" >/dev/null
         [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
     fi
 }
-bindkey -s '^o' 'lfcd\n'
+bindkey -s '^o' '^ulfcd\n'
 
-bindkey -s '^a' 'bc -lq\n'
+bindkey -s '^a' '^ubc -lq\n'
 
-bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
+bindkey -s '^f' '^ucd "$(dirname "$(fzf)")"\n'
 
 bindkey '^[[P' delete-char
 
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
+bindkey -M vicmd '^[[P' vi-delete-char
+bindkey -M vicmd '^e' edit-command-line
+bindkey -M visual '^[[P' vi-delete
+
+
+
+##alias
+alias p="sudo pacman -S"
+alias pu="sudo pacman -Syu"
+alias prm="sudo pacman -Rns"
+alias grep="grep --color"
+alias ls='ls --color=auto'
+alias ll="ls -Alh"
+alias g="git"
+alias ga="git add"
+alias gm="git commit -m"
+alias ythd="yt-dlp -f 137+140"
+alias mpf="mpv -fs"
+alias mp2="mpv --speed=2"
+alias pg="ping google.com"
+alias nf="neofetch"
+alias ytcf="yt-dlp --cookies-from-browser brave -F"
+alias ytc="yt-dlp --cookies-from-browser brave -f"
+
+
+
+
+#############################################################################
+#								man col										#
+#############################################################################
+# Requires colors autoload.
+# See termcap(5).
+
+# Set up once, and then reuse. This way it supports user overrides after the
+# plugin is loaded.
+typeset -AHg less_termcap
+
+# bold & blinking mode
+less_termcap[mb]="${fg_bold[red]}"
+less_termcap[md]="${fg_bold[red]}"
+less_termcap[me]="${reset_color}"
+# standout mode
+less_termcap[so]="${fg_bold[yellow]}${bg[blue]}"
+less_termcap[se]="${reset_color}"
+# underlining
+less_termcap[us]="${fg_bold[green]}"
+less_termcap[ue]="${reset_color}"
+
+# Handle $0 according to the standard:
+# https://zdharma-continuum.github.io/Zsh-100-Commits-Club/Zsh-Plugin-Standard.html
+0="${${ZERO:-${0:#$ZSH_ARGZERO}}:-${(%):-%N}}"
+0="${${(M)0:#/*}:-$PWD/$0}"
+
+# Absolute path to this file's directory.
+typeset -g __colored_man_pages_dir="${0:A:h}"
+
+function colored() {
+  local -a environment
+
+  # Convert associative array to plain array of NAME=VALUE items.
+  local k v
+  for k v in "${(@kv)less_termcap}"; do
+    environment+=( "LESS_TERMCAP_${k}=${v}" )
+  done
+
+  # Prefer `less` whenever available, since we specifically configured
+  # environment for it.
+  environment+=( PAGER="${commands[less]:-$PAGER}" )
+
+  # See ./nroff script.
+  if [[ "$OSTYPE" = solaris* ]]; then
+    environment+=( PATH="${__colored_man_pages_dir}:$PATH" )
+  fi
+
+  command env $environment "$@"
+}
+
+# Colorize man and dman/debman (from debian-goodies)
+function man \
+  dman \
+  debman {
+  colored $0 "$@"
+}
+
+#############################################################################
+#								man color end 								#
+#############################################################################
 
 # Load syntax highlighting; should be last.
 #source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
