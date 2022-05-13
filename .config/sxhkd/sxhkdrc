@@ -1,18 +1,23 @@
-super + B
-	brave
+alt + b
+	 notify-send -t 600 -u low "Brave" "Openning new window" ; brave
+
+super + shift + b
+	notify-send -t 600 -u low "Brave" "Openning in incognito" ; brave --incognito
+
+
 
 super + shift + o
-	[ $(echo "no\nyes-poweroff" | dmenu ) = yes-poweroff ] && poweroff
+	[ $(echo "no\nyes" | dmenu -i -p "Poweroff" ) = yes ] && poweroff
 
 super + shift + r
-	[ $(echo "no\nyes-reboot" | dmenu ) = yes-reboot ] && reboot
+	[ $(echo "no\nyes" | dmenu  -i -p "Reboot" ) = yes ] && reboot
 
 
 alt + {a, s, d}
 	 backl {-A 10,-S 4, -U 10}
 
 super + shift + l
-	var=$( echo "10\n20\n30\n40\n50\n60\n70\n80\n90\n100" | dmenu ) ; [ ! -z "$var" ] && light -S $var && notify-send -t 800 -u low "$var%" "Brghtness set"
+	var=$( echo "10\n20\n30\n40\n50\n60\n70\n80\n90\n100" | dmenu -p "Brightness" ) ; [ ! -z "$var" ] && light -S $var && notify-send -t 800 -u low "$var%" "Brghtness set"
 
 
 alt + p
@@ -21,6 +26,11 @@ alt + p
 alt + shift + p
 	maim --select | tee ~/pix/srs/$( date +%s ).png | xclip -selection clipboard -t image/png && notify-send -t 500 " SS taken" " ok?"
 
+alt + {i, shift + i}
+	select-ss {f, s}
+
 alt + {0, 9, 8}
 	volume { up, down ,mute }
 
+alt + m
+	signal-desktop
