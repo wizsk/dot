@@ -75,28 +75,6 @@ bindkey -M vicmd '^e' edit-command-line
 bindkey -M visual '^[[P' vi-delete
 
 
-
-##alias
-alias p="sudo pacman -S"
-alias pu="sudo pacman -Syu"
-alias prm="sudo pacman -Rns"
-alias grep="grep --color"
-alias ls='ls --color=auto'
-alias ll="ls -Alh"
-alias g="git"
-alias ga="git add"
-alias gm="git commit -m"
-alias ythd="yt-dlp -f 137+140"
-alias mpf="mpv -fs"
-alias mp2="mpv --speed=2"
-alias pg="ping google.com"
-alias nf="neofetch"
-alias ytcf="yt-dlp --cookies-from-browser brave -F"
-alias ytc="yt-dlp --cookies-from-browser brave -f"
-
-
-
-
 #############################################################################
 #								man col										#
 #############################################################################
@@ -153,10 +131,33 @@ function man \
   debman {
   colored $0 "$@"
 }
-
 #############################################################################
 #								man color end 								#
 #############################################################################
+
+
+##alias
+alias p="sudo pacman -S"
+alias pu="sudo pacman -Syu"
+alias prm="sudo pacman -Rns"
+alias grep="grep --color"
+alias ls='ls --color=auto'
+alias ll="ls -Alh"
+alias g="git"
+alias ga="git add"
+alias gm="git commit -m"
+alias ythd="yt-dlp -f 137+140"
+
+alias mpf="mpv -fs"
+alias mp2="mpv --speed=2"
+alias mp22="mpv --speed=2.22"
+
+
+alias pg="ping google.com"
+alias nf="neofetch"
+alias ytcf="yt-dlp --cookies-from-browser brave -F"
+alias ytc="yt-dlp --cookies-from-browser brave"
+alias ytcfd="yt-dlp --cookies-from-browser brave -f"
 
 # Load syntax highlighting; should be last.
 #source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
