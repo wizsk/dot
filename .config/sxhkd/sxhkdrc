@@ -1,8 +1,8 @@
 alt + b
-	 notify-send -t 600 -u low "Brave" "Openning new window" ; brave
+	 notify-send -t 3000 -u low "Brave" "Openning new window" ; brave
 
 super + shift + b
-	notify-send -t 600 -u low "Brave" "Openning in incognito" ; brave --incognito
+	notify-send -t 3000 -u low "Brave" "Openning in incognito" ; brave --incognito
 
 
 
