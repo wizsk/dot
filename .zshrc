@@ -159,6 +159,7 @@ alias ytcf="yt-dlp --cookies-from-browser brave -F"
 alias ytc="yt-dlp --cookies-from-browser brave"
 alias ytcfd="yt-dlp --cookies-from-browser brave -f"
 
+alias ytt="ytfzf -t"
 # Load syntax highlighting; should be last.
 #source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2>/dev/null
