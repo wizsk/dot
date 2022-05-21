@@ -1,8 +1,8 @@
 alt + b
-	 notify-send -t 3000 -u low "Brave" "Openning new window" ; brave
+	 notify-send -t 6000 -u low "Brave" "Openning new window" ; brave
 
 super + shift + b
-	notify-send -t 3000 -u low "Brave" "Openning in incognito" ; brave --incognito
+	notify-send -t 6000 -u low "Brave" "Openning in incognito" ; brave --incognito
 
 
 
@@ -21,10 +21,10 @@ super + shift + l
 
 
 alt + p
-	maim | tee ~/pix/srs/$( date +%s ).png | xclip -selection clipboard -t image/png && notify-send -t 500 " SS taken" " ok?"
+	maim | tee ~/pix/srs/$( date +"%d-%M-%y-%s" ).png | xclip -selection clipboard -t image/png && notify-send -t 1000 " SS taken" " ok?"
 
 alt + shift + p
-	maim --select | tee ~/pix/srs/$( date +%s ).png | xclip -selection clipboard -t image/png && notify-send -t 500 " SS taken" " ok?"
+	maim --select | tee ~/pix/srs/$( date +"%d-%M-%y-%s" ).png | xclip -selection clipboard -t image/png && notify-send -t 1000 " SS taken" " ok?"
 
 alt + {i, shift + i}
 	select-ss {f, s}
@@ -33,4 +33,4 @@ alt + {0, 9, 8}
 	volume { up, down ,mute }
 
 alt + m
-	signal-desktop
+	notify-send -t 3000 -u low i ; telegram-dekstop	
