@@ -4,6 +4,8 @@ alt + b
 super + shift + b
 	notify-send -t 6000 -u low "Brave" "Openning in incognito" ; brave --incognito
 
+super + shift +  {n, m}
+	setxkbmap {ar ; notify-send -t 600 -u low "Arabic" "Set as keyb layour", us && sleep 2 && xmodmap ~/.Xmodmap}
 
 
 super + shift + o
