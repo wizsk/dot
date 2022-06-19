@@ -93,7 +93,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 11
+  size: 10
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -118,7 +118,8 @@ draw_bold_text_with_bright_colors: true
 colors:
   # Default colors
   primary:
-    background: '#282a36'
+    #background: '#282a36'
+    background: '#050505'
     foreground: '#f8f8f2'
 
   # Normal colors
