@@ -1,3 +1,9 @@
+alt + Return
+	alacritty
+
+alt + space 
+	kbcng
+
 alt + b
 	 notify-send -t 6000 -u low "Brave" "Openning new window" ; brave
 
