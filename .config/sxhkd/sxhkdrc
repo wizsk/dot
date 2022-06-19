@@ -38,7 +38,7 @@ alt + {i, shift + i}
 	select-ss {f, s}
 
 alt + {0, 9, 8}
-	volume { up, down ,mute }
+	volume { up, down ,mute } ; pkill -RTMIN+10 dwmblocks
 
 alt + m
 	notify-send -t 3000 -u low i ; telegram-dekstop	
