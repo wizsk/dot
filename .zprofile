@@ -8,7 +8,8 @@ startx
 # Default programs:
 export EDITOR="nvim"
 export TERMINAL="st"
-export BROWSER="brave"
+#export BROWSER="brave"
+export BROWSER="firefox"
 ghb="git@github.com:sakibulxyz"
 # ~/ Clean-up:
 export XDG_CONFIG_HOME="$HOME/.config"

@@ -1,8 +1,8 @@
 alt + Return
 	alacritty
 
-alt + space 
-	kbcng
+alt + {space, u}
+	{kbcng, kbcng ar}
 
 alt + b
 	 notify-send -t 6000 -u low "Brave" "Openning new window" ; brave
