@@ -148,6 +148,8 @@ alias ga="git add"
 alias gm="git commit -m"
 alias ythd="yt-dlp -f 137+140"
 
+alias mkd="mkdir -p"
+
 alias mpf="mpv -fs"
 alias mp2="mpv --speed=2"
 alias mp22="mpv --speed=2.22"
@@ -165,9 +167,11 @@ alias lc="lolcat"
 
 alias lf="lfub"
 
-alias vi="nvim"
-alias vim="nvim"
 alias v="nvim"
+
+alias bl="bluetoothctl"
+
+alias ab="curl "https://wttr.in/$(cut -d ';' -f 1 ~/.cache/stime/location)""
 
 # Load syntax highlighting; should be last.
 #source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null

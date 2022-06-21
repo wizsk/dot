@@ -110,6 +110,8 @@ live_config_reload: true
 key_bindings:
   - { key: V,           mods: Alt,                         action: Paste                 }
   - { key: C,           mods: Alt,                         action: Copy                  }
+  - { key: K,           mods: Alt,                         action: ScrollLineUp          }
+  - { key: J,           mods: Alt,                         action: ScrollLineDown        }
 
 
    # Vi Mode

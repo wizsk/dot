@@ -1,5 +1,8 @@
-alt + Return
+super + Return
 	alacritty
+
+alt + Return
+	st
 
 alt + {space, u}
 	{kbcng, kbcng ar}
