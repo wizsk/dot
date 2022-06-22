@@ -1,0 +1,1 @@
+xorg-xinit xorg-server xorg-xrandr xorg-xsetroot base-devel git vim libx11 libxinerama webkit2gtk picom ttf-roboto-mono

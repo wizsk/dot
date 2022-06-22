@@ -27,7 +27,7 @@ super + shift + r
 alt + {a, s, d}
 	 backl {-A 10,-S 4, -U 10}
 
-super + shift + l
+alt + shift + l
 	var=$( echo "10\n20\n30\n40\n50\n60\n70\n80\n90\n100" | dmenu -p "Brightness" ) ; [ ! -z "$var" ] && light -S $var && notify-send -t 800 -u low "$var%" "Brghtness set"
 
 
@@ -45,3 +45,5 @@ alt + {0, 9, 8}
 
 alt + m
 	notify-send -t 3000 -u low i ; telegram-dekstop	
+
+

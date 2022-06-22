@@ -1,0 +1,7 @@
+To install yay
+pacman -S --needed git base-devel ## You shoud have these
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+
+pamcan -S $(cat file-pkg) #to install the apps
