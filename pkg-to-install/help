@@ -4,4 +4,12 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 
+## to change bash to zsh
+sudo vim /etc/passwd
+## at last you sould see ur user name there change bash to zsh
+
+
 pamcan -S $(cat file-pkg) #to install the apps
+
+# light setup
+sudo usermod +aG video username && restart
