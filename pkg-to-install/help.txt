@@ -1,15 +1,20 @@
-To install yay
-pacman -S --needed git base-devel ## You shoud have these
-git clone https://aur.archlinux.org/yay.git
+# To install yay 
+
+sudo pacman -S git base-devel 
+git clone https://aur.archlinux.org/yay.git 
 cd yay
 makepkg -si
 
 ## to change bash to zsh
+
 sudo vim /etc/passwd
 ## at last you sould see ur user name there change bash to zsh
 
 
-pamcan -S $(cat file-pkg) #to install the apps
-
 # light setup
 sudo usermod +aG video username && restart
+
+
+## install pks 
+
+sh pkg.sh ## example: sh dwm-dependencies.sh
