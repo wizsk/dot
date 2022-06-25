@@ -1,13 +1,41 @@
-# My dotfiles
+# My dotfiles & Dwm install Things
 
-## ONE THING the files are hidden so to list them type
+## First run this commands to cp all the .files to ~/home
 ```bash
-ls -A
-pamcan -S $( cat pacman-pkg ) # For itstalling the progrms that is use
+git clone https://github.com/sakibulxyz/files
+cd files
+cp .* ~/
+# to copy .configs/files
+cp .config/* ~/.config/
 ```
 
-## To copy just do
+## Dwm things
+### First Install yay
 ```bash
-https://github.com/sakibulxyz/dotfiles
+sudo pacman -S git base-devel
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
 ```
-### Then copy them to right place
+
+### cd into pkg-to-install and run this to install dwm dependencies
+```bash
+sh dwm-dependencies.sh
+```
+### Now install dwm, st and dmenu
+```bash
+## isntall Dwm
+git clone https://github.com/sakibulxyz/dwm
+cd dwm
+sudo make install
+## installing st is tedious
+git clone https://github.com/sakibulxyz/st
+cd st 
+sudo fakeroot
+make install
+exit
+## insaltll dmenu
+git clone https://github.com/sakibulxyz/dmenu
+cd dmenu
+sudo make install
+```
