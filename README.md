@@ -21,6 +21,7 @@ makepkg -si
 ### cd into pkg-to-install and run this to install dwm dependencies
 ```bash
 sh dwm-dependencies.sh
+sh important-pkgs.sh 
 ```
 ### Now install dwm, st and dmenu
 ```bash
@@ -34,7 +35,7 @@ cd st
 sudo fakeroot
 make install
 exit
-## insaltll dmenu
+## insatall dmenu
 git clone https://github.com/sakibulxyz/dmenu
 cd dmenu
 sudo make install
