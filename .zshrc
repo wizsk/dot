@@ -171,6 +171,7 @@ alias v="nvim"
 
 alias bl="bluetoothctl"
 
+
 alias ab="curl "https://wttr.in/$(cut -d ';' -f 1 ~/.cache/stime/location)""
 
 # Load syntax highlighting; should be last.
