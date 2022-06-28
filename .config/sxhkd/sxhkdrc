@@ -7,8 +7,11 @@ alt + Return
 alt + {space, u}
 	{kbcng, kbcng ar}
 
-alt + b
-	 notify-send -t 6000 -u low "Brave" "Openning new window" ; brave
+super + i
+	notify-send -t 6000 -u low "Firefox" "Openning new window" ; firefox
+
+#alt + b
+#	 notify-send -t 6000 -u low "Brave" "Openning new window" ; brave
 
 super + shift + b
 	notify-send -t 6000 -u low "Brave" "Openning in incognito" ; brave --incognito
