@@ -6,7 +6,7 @@ git clone https://github.com/sakibulxyz/files
 cd files
 cp .* ~/
 # to copy .configs/files
-cp .config/* ~/.config/
+cp -r .config/* ~/.config/
 ```
 
 ## Dwm things
@@ -18,7 +18,7 @@ cd yay
 makepkg -si
 ```
 
-### cd into pkg-to-install and run this to install dwm dependencies
+### cd into pkg-to-install from the file folder and run this to install dwm dependencies
 ```bash
 sh dwm-dependencies.sh
 sh important-pkgs.sh 
