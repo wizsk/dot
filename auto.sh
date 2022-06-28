@@ -1,4 +1,3 @@
-! /bin/sh
 printf "Have you installed Yay? [Y/n] " && read -r prom
 [ "$prom" = "n" ] && echo "Nothing will be installed install yay There is instruction in help.txt" && exit 0
 
@@ -20,7 +19,7 @@ sudo light -a -G video $USER && printf "\nUser added to video group\n\n"
 printf "\ncpoing\033[1;31m dot files \033[0m\n\n"
 cp .* ~/
 mkdir -p ~/.config
-cp -r .config/* ~/.config
+cp -r .config/* ~/.config/
 
 printf "\ncloning\033[1;31m dwm,st,dmenu \033[0m\n\n"
 git clone https://github.com/sakibulxyz/dwm
