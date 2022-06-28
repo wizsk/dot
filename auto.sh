@@ -19,6 +19,7 @@ sudo light -a -G video $USER && printf "\nUser added to video group\n\n"
 
 printf "\ncpoing\033[1;31m dot files \033[0m\n\n"
 cp .* ~/
+mkdir -p ~/.config
 cp -r .config/* ~/.config
 
 printf "\ncloning\033[1;31m dwm,st,dmenu \033[0m\n\n"
