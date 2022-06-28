@@ -1,33 +1,31 @@
-# bluetooth things
+# Setting up bluetooth
 
-bluez bluez-utls
+# install these 3 pkg
+# if you have installed personal-pkg.sh then skip it they are installed then
+bluez   bluez-utls
+pulseaudio-bluetooth # for audio  install
 
-#cmd lsmod  | grep btusb
+# run
+$ lsmod | grep btusb
 # if somesitng poops up then its loaded
 # if not # cmd modprobe btusb
+
+# then Run these commands soystem d auto start
 sudo systemctl start bluetooth.service
 sudo systemctl enable bluetooth.service #auto load each time
 
-
-# done 
-# connect wiht
-
+# to connect 
 bluetoothctl
   power on
   agent on
   defautl-agent
 
+# never mind this park i don't have a clue ( i mean last sudo nvim part )
+# this just means you have to run 
+		$ bluetoothctl power on 
+# every time you start your pc otherwise won't connect
+# and i kinda like it 
 sudo nvim /etc/bluetooth/main.conf
 	change last line to true
 	i mean auto enable
-
-
-# for audio 
-
-pulseaudio-bluetooth # install it
-
-pulsemixer # contoring sound and stuff
-
-
-bluetoothctl power on
 
