@@ -67,7 +67,7 @@ alias lis="light -S"
 #  castom vars  #
 
 export PATH=$PATH:/home/sk/.local/bin
-export PATH=$PATH:/home/sk/.local/bin/dwmblock
+export PATH=$PATH:/home/sk/.local/bin/sr-dwmblocks
 ######################
 
 #####
