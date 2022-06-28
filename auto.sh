@@ -11,7 +11,7 @@ printf "\n NOTE: while installing libxft-bgra There will be a promt saying if yo
 yay -S libxft-bgra
 
 printf "\nInstalling\033[1;31m dwm more dependencies \033[0m\n\n"
-sudo pacman -S dunst sxhkd redshift alacritty light pamixer xwallpaper zsh zsh-syntax-highlighting ttf-cascadia-code ttf-roboto-mono noto-fonts-emoji 
+sudo pacman -S dunst sxhkd redshift alacritty light pamixer xwallpaper zsh zsh-syntax-highlighting jq ttf-jetbrains-mono ttf-roboto-mono noto-fonts-emoji 
 
 printf "\nAdding\033[1;31m user to video group \033[0m\n\n"
 sudo light -a -G video $USER && printf "\nUser added to video group\n\n"
