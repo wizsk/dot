@@ -35,10 +35,10 @@ alt + shift + l
 
 
 alt + p
-	maim | tee ~/pix/srs/$( date +"%d-%M-%y-%s" ).png | xclip -selection clipboard -t image/png && notify-send -t 1000 " SS taken" " ok?"
+	maim | tee ~/pix/srs/$( date +"%d-%m-%y-%s" ).png | xclip -selection clipboard -t image/png && notify-send -t 1000 " SS taken" " ok?"
 
 alt + shift + p
-	maim --select | tee ~/pix/srs/$( date +"%d-%M-%y-%s" ).png | xclip -selection clipboard -t image/png && notify-send -t 1000 " SS taken" " ok?"
+	maim --select | tee ~/pix/srs/$( date +"%d-%m-%y-%s" ).png | xclip -selection clipboard -t image/png && notify-send -t 1000 " SS taken" " ok?"
 
 alt + {i, shift + i}
 	select-ss {f, s}
@@ -49,4 +49,9 @@ alt + {0, 9, 8}
 alt + m
 	notify-send -t 3000 -u low i ; telegram-dekstop	
 
+super + w
+	xwallpaper --zoom ~/pix/wal/$(ls ~/pix/wal | shuf -n 1)
+
+super + shift + {t, y}
+	touchp {d, e}
 
