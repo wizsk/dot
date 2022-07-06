@@ -3,6 +3,8 @@ br="firefox"
 # Enable colors and change prompt:
 autoload -U colors && colors	# Load colors
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+# PS1="%B%{$fg[yellow]%}%n %{$fg[magenta]%}%~%{$reset_color%}$%b "
+# PS1=$'\n'"%B%{$fg[red]%}%~%{$reset_color%}"$'\n'"%b "
 setopt autocd		# Automatically cd into typed directory.
 stty stop undef		# Disable ctrl-s to freeze terminal.
 setopt interactive_comments
@@ -105,9 +107,11 @@ alias g="git"
 alias ga="git add"
 alias gm="git commit -m"
 alias gp="git push"
+alias gc="git clone"
 
 alias grep="grep --color"
 alias ls='ls --color=auto'
+alias lf="lfub"
 
 alias mkd="mkdir -p"
 alias ll="ls -Alh"
@@ -118,8 +122,11 @@ alias m22="mpv --speed=2.22"
 alias pg="ping google.com"
 alias nf="neofetch"
 
-alias ytt="ytfzf -t"
+alias yt="ytfzf -t"
+alias yth="yt-dlp -f 137+140"
 
 alias bl="bluetoothctl"
+
+alias xc="xclip -selection clipboard"
 
 alias ab="curl "https://wttr.in/$(cut -d ';' -f 1 ~/.cache/stime/location)""
