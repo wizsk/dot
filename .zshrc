@@ -1,10 +1,9 @@
 # taken from luke smit's void rice repo
-br="firefox"
 # Enable colors and change prompt:
 autoload -U colors && colors	# Load colors
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 # PS1="%B%{$fg[yellow]%}%n %{$fg[magenta]%}%~%{$reset_color%}$%b "
-# PS1=$'\n'"%B%{$fg[red]%}%~%{$reset_color%}"$'\n'"%b "
+# PS1=$'\n'"%B%{$fg[red]%}%~%{$reset_color%}"$'\n'">%b "
 setopt autocd		# Automatically cd into typed directory.
 stty stop undef		# Disable ctrl-s to freeze terminal.
 setopt interactive_comments
@@ -48,8 +47,23 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
+# Use lf to switch directories and bind it to ctrl-o
+lfcd () {
+    tmp="$(mktemp -uq)"
+    trap 'rm -f $tmp >/dev/null 2>&1' HUP INT QUIT TERM PWR EXIT
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
+}
+bindkey -s '^o' '^ulfcd\n'
 
-bindkey -s '^f' '^ucd "$(dirname "$(fzf)")"\n'
+bindkey -s '^a' '^ubc -lq\n'
+
+# bindkey -s '^f' '^ulfub\n'
+bindkey -s '\ef' '^ulfub\n'
+# bindkey -s '^f' '^ucd "$(dirname "$(fzf)")"\n'
 
 bindkey '^[[P' delete-char
 
