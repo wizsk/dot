@@ -15,18 +15,22 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 
+
 # Other program settings:
+export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 export LESS=-R
-export LESS_TERMCAP_mb="$(printf '%b' '')"
-export LESS_TERMCAP_md="$(printf '%b' '')"
-export LESS_TERMCAP_me="$(printf '%b' '')"
-export LESS_TERMCAP_so="$(printf '%b' '')"
-export LESS_TERMCAP_se="$(printf '%b' '')"
-export LESS_TERMCAP_us="$(printf '%b' '')"
-export LESS_TERMCAP_ue="$(printf '%b' '')"
+export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
+export LESS_TERMCAP_md="$(printf '%b' '[1;36m')"
+export LESS_TERMCAP_me="$(printf '%b' '[0m')"
+export LESS_TERMCAP_so="$(printf '%b' '[01;44;33m')"
+export LESS_TERMCAP_se="$(printf '%b' '[0m')"
+export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"
+export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
 export LESSOPEN="| /usr/bin/highlight -O ansi %s 2>/dev/null"
-export QT_QPA_PLATFORMTHEME="gtk2"      # Have QT use gtk2 theme.
-export _JAVA_AWT_WM_NONREPARENTING=1    # Fix for Java applications in dwm
+export QT_QPA_PLATFORMTHEME="gtk2"	# Have QT use gtk2 theme.
+export MOZ_USE_XINPUT2="1"		# Mozilla smooth scrolling/touchpads.
+export AWT_TOOLKIT="MToolkit wmname LG3D"	#May have to install wmname
+export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm
 
 
 # This is the list for lf icons:
@@ -107,4 +111,12 @@ ex=🎯:\
 *.jar=♨:\
 *.java=♨:\
 "
-startx
+if pacman -Qs libxft-bgra >/dev/null 2>&1; then
+	# Start graphical server on user's current tty if not already running.
+	[ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx
+else
+	echo "\033[31mIMPORTANT\033[0m: Note that \033[32m\`libxft-bgra\`\033[0m must be installed for this build of dwm.
+Please run:
+	\033[32myay -S libxft-bgra-git\033[0m
+and replace \`libxft\`. Afterwards, you may start the graphical server by running \`startx\`."
+fi

@@ -75,39 +75,6 @@ bindkey -M vicmd '^e' edit-command-line
 bindkey -M visual '^[[P' vi-delete
 
 
-##### manpage color
-# Requires colors autoload. (man page)
-typeset -AHg less_termcap
-less_termcap[mb]="${fg_bold[red]}"
-less_termcap[md]="${fg_bold[red]}"
-less_termcap[me]="${reset_color}"
-less_termcap[so]="${fg_bold[yellow]}${bg[blue]}"
-less_termcap[se]="${reset_color}"
-less_termcap[us]="${fg_bold[green]}"
-less_termcap[ue]="${reset_color}"
-0="${${ZERO:-${0:#$ZSH_ARGZERO}}:-${(%):-%N}}"
-0="${${(M)0:#/*}:-$PWD/$0}"
-typeset -g __colored_man_pages_dir="${0:A:h}"
-function colored() {
-  local -a environment
-  local k v
-  for k v in "${(@kv)less_termcap}"; do
-    environment+=( "LESS_TERMCAP_${k}=${v}" )
-  done
-  environment+=( PAGER="${commands[less]:-$PAGER}" )
-  if [[ "$OSTYPE" = solaris* ]]; then
-    environment+=( PATH="${__colored_man_pages_dir}:$PATH" )
-  fi
-
-  command env $environment "$@"
-}
-
-function man \
-  dman \
-  debman {
-  colored $0 "$@"
-}
-#### man color end
 # Load syntax highlighting;
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2>/dev/null
 
@@ -136,6 +103,7 @@ alias m22="mpv --speed=2.22"
 alias pg="ping google.com"
 alias nf="neofetch"
 
+alias y="ytfzf"
 alias yt="ytfzf -t"
 alias yth="yt-dlp -f 137+140"
 
