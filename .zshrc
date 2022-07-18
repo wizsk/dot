@@ -80,7 +80,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.pl
 
 ##alias
 alias p="sudo pacman"
-# alias ps="sudo pacman -S"
+alias pi="sudo pacman -S"
 alias prm="sudo pacman -Rns"
 
 

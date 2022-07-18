@@ -1,7 +1,7 @@
-super + Return
+alt + Return
 	st
 
-alt + Return
+super + Return
 	alacritty
 
 alt + {space, u}
@@ -23,7 +23,7 @@ super + shift +  {n, m}
 super + shift + o
 	[ $(echo "no\nyes" | dmenu -i -p "Poweroff" ) = yes ] && poweroff
 
-super + shift + r
+super + shift + b
 	[ $(echo "no\nyes" | dmenu  -i -p "Reboot" ) = yes ] && reboot
 
 
@@ -47,11 +47,10 @@ alt + {0, 9, 8}
 	volume { up, down ,mute } ; pkill -RTMIN+10 dwmblocks
 
 alt + m
-	notify-send -t 3000 -u low i ; telegram-dekstop	
+	notify-send -t 3000 -u low "telegram" ; telegram-dekstop
 
-super + w
+super + shift + w
 	xwallpaper --zoom ~/pix/wal/$(ls ~/pix/wal | shuf -n 1)
 
 super + shift + {t, y}
 	touchp {d, e}
-

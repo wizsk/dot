@@ -1,11 +1,11 @@
 font pango:Jetbrains Mono 8
 
-exec_always --no-startup-id picom --backend glx &
-exec_always --no-startup-id sxhkd
-exec_always --no-startup-id xmodmap ~/.Xmodmap &
-exec_always --no-startup-id light -S $(cat ~/.cache/light_set | cut -d "." -f 1 | sed "s/^0/1/") &
-exec_always --no-startup-id xwallpaper --zoom ~/pix/wal/$(ls ~/pix/wal | shuf -n 1) &
-exec_always --no-startup-id redshift -l 24.244968:89.911305 &
+exec --no-startup-id picom --backend glx
+exec --no-startup-id sxhkd
+exec xmodmap ~/.Xmodmap
+exec --no-startup-id light -S $(cat ~/.cache/light_set | cut -d "." -f 1 | sed "s/^0/1/")
+exec_always --no-startup-id xwallpaper --zoom ~/pix/wal/$(ls ~/pix/wal | shuf -n 1)
+exec --no-startup-id redshift -l 24.244968:89.911305
 
 # tittle bar
 for_window [class="^.8"] border pixel 1
@@ -128,9 +128,16 @@ set $ws10 "10"
 #    *** Workspace specific settings ***             #
 ##=================================================##
 # Assign Workspaces:
+# get class name $ xprop | grep 'CLASS'
 assign [class="firefox"] $ws3
+assign [class="Brave-browser"] $ws3
 assign [class="chromium"] $ws3
-assign [class="qbittorrent"] $ws8
+assign [class="Google-chrome"] $ws3
+assign [class="qBittorrent"] $ws8
+assign [class="TelegramDesktop"] $ws2
+
+# defautl full screen
+# for_window [class=".*"] fullscreen enable
 
 # switch to workspace
 bindsym Mod4+1 workspace number $ws1
@@ -194,3 +201,12 @@ bindsym Mod4+r mode "resize"
 bar {
         status_command i3status
 }
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff

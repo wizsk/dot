@@ -8,7 +8,7 @@
 "" To install plug use this command
 " sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        " https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
+"" grep "sh -c\|\"\s\+https://raw.gi" init.vim | tr -d "\"" | xclip -selection clipboard
 
 call plug#begin()
 
