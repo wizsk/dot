@@ -2,7 +2,9 @@
 
 # Adds `~/.local/bin` to $PATH
 unsetopt PROMPT_SP
-export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
+
+# export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}" # if use dwm then use it
+export PATH="$PATH:$HOME/.local/bin"
 
 # Default programs:
 export EDITOR="nvim"
