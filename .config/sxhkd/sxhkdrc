@@ -23,7 +23,7 @@ super + shift +  {n, m}
 super + shift + o
 	[ $(echo "no\nyes" | dmenu -i -p "Poweroff" ) = yes ] && poweroff
 
-super + shift + b
+super + shift + i
 	[ $(echo "no\nyes" | dmenu  -i -p "Reboot" ) = yes ] && reboot
 
 

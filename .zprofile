@@ -111,4 +111,4 @@ ex=🎯:\
 *.jar=♨:\
 *.java=♨:\
 "
-# exec startx
+exec startx

@@ -1,11 +1,11 @@
 font pango:Jetbrains Mono 8
 
-exec --no-startup-id picom --backend glx
-exec --no-startup-id sxhkd
-exec xmodmap ~/.Xmodmap
-exec --no-startup-id light -S $(cat ~/.cache/light_set | cut -d "." -f 1 | sed "s/^0/1/")
-exec_always --no-startup-id xwallpaper --zoom ~/pix/wal/$(ls ~/pix/wal | shuf -n 1)
-exec --no-startup-id redshift -l 24.244968:89.911305
+# exec --no-startup-id picom --backend glx
+# exec --no-startup-id sxhkd
+# exec xmodmap ~/.Xmodmap
+# exec --no-startup-id light -S $(cat ~/.cache/light_set | cut -d "." -f 1 | sed "s/^0/1/")
+# exec_always --no-startup-id xwallpaper --zoom ~/pix/wal/$(ls ~/pix/wal | shuf -n 1)
+# exec --no-startup-id redshift -l 24.244968:89.911305
 
 # tittle bar
 for_window [class="^.8"] border pixel 1
