@@ -132,6 +132,8 @@ set $ws10 "10"
 assign [class="firefox"] $ws3
 assign [class="Brave-browser"] $ws3
 assign [class="chromium"] $ws3
+assign [class="libreoffice-startcenter"] $ws4
+assign [class="libreoffice-writer"] $ws4
 assign [class="Google-chrome"] $ws3
 assign [class="qBittorrent"] $ws8
 assign [class="TelegramDesktop"] $ws2
