@@ -7,6 +7,10 @@ super + Return
 alt + {space, u}
 	{kbcng, kbcng ar}
 
+# Dream classes dmenu
+super + d
+	dr -d
+
 super + i
 	notify-send -t 6000 -u low "Firefox" "Openning new window" ; firefox
 
