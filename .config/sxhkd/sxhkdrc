@@ -11,19 +11,19 @@ alt + {space, u}
 super + d
 	dr -d
 
+# open books
+super + b
+	z-pdf -d
+
 super + i
 	notify-send -t 6000 -u low "Firefox" "Openning new window" ; firefox
 
-#alt + b
-#	 notify-send -t 6000 -u low "Brave" "Openning new window" ; brave
 
 super + shift + b
-	notify-send -t 6000 -u low "Brave" "Openning in incognito" ; brave --incognito
-
-super + shift +  {n, m}
-	setxkbmap {ar ; notify-send -t 600 -u low "Arabic" "Set as keyb layour", us && sleep 2 && xmodmap ~/.Xmodmap}
+	notify-send -t 6000 -u low "Brave" "Openning in incognito" ; brave
 
 
+# Reasrt and poeroff
 super + shift + o
 	[ $(echo "no\nyes" | dmenu -i -p "Poweroff" ) = yes ] && poweroff
 
@@ -31,13 +31,12 @@ super + shift + i
 	[ $(echo "no\nyes" | dmenu  -i -p "Reboot" ) = yes ] && reboot
 
 
+# Brightness
 alt + {a, s, d}
 	 backl {-A 10,-S 4, -U 10}
 
-alt + shift + l
-	var=$( echo "10\n20\n30\n40\n50\n60\n70\n80\n90\n100" | dmenu -p "Brightness" ) ; [ ! -z "$var" ] && light -S $var && notify-send -t 800 -u low "$var%" "Brghtness set"
 
-
+# tacking ss
 alt + p
 	maim | tee ~/pix/srs/$( date +"%d-%m-%y-%s" ).png | xclip -selection clipboard -t image/png && notify-send -t 1000 " SS taken" " ok?"
 
@@ -47,14 +46,19 @@ alt + shift + p
 alt + {i, shift + i}
 	select-ss {f, s}
 
+# volume up down
 alt + {0, 9, 8}
-	volume { up, down ,mute } ; pkill -RTMIN+10 dwmblocks
+	volume { up, down ,mute }
+
 
 alt + m
-	notify-send -t 3000 -u low "telegram" ; telegram-dekstop
+	notify-send -t 3000 -u low "telegram" ; telegram-desktop
 
+# wallpaper
 super + shift + w
 	xwallpaper --zoom ~/pix/wal/$(ls ~/pix/wal | shuf -n 1)
 
+
+# touchpad disable enable
 super + shift + {t, y}
 	touchp {d, e}

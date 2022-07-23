@@ -59,6 +59,8 @@ lfcd () {
 }
 bindkey -s '^o' '^ulfcd\n'
 
+bindkey -s '^k' '^uquran -f\n'
+
 bindkey -s '^a' '^ubc -lq\n'
 
 # bindkey -s '^f' '^ulfub\n'
@@ -104,11 +106,10 @@ alias pg="ping google.com"
 alias nf="neofetch"
 
 alias y="ytfzf"
-alias yt="ytfzf -t"
+alias yt='FZF_DEFAULT_OPTS="--layout=default --height 100%" && ytfzf -t'
 alias yth="yt-dlp -f 137+140"
 
 alias bl="bluetoothctl"
 
 alias xc="xclip -selection clipboard"
 
-alias ab="curl "https://wttr.in/$(cut -d ';' -f 1 ~/.cache/stime/location)""
