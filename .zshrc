@@ -77,8 +77,6 @@ bindkey -M vicmd '^e' edit-command-line
 bindkey -M visual '^[[P' vi-delete
 
 
-# Load syntax highlighting;
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2>/dev/null
 
 ##alias
 alias p="sudo pacman"
@@ -113,3 +111,19 @@ alias bl="bluetoothctl"
 
 alias xc="xclip -selection clipboard"
 
+#### Porasuna cd 
+alias h1='cd ~/Pora/1-Higher-Math/1st/'
+alias h2='cd ~/Pora/1-Higher-Math/2nd/'
+alias p1='cd ~/Pora/2-Physics/1st'
+alias p2='cd ~/Pora/2-Physics/2nd'
+alias c1='cd ~/Pora/3-Chemistry/1st'
+alias c2='cd ~/Pora/3-Chemistry/2nd'
+alias c2='cd ~/Pora/3-Chemistry/2nd'
+alias b1='cd ~/Pora/4-Biology/1st'
+alias b2='cd ~/Pora/4-Biology/2nd'
+
+
+
+# Load syntax highlighting;
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2>/dev/null
+# echo -ne '\e[1 q'
