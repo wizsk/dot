@@ -1,7 +1,15 @@
 # taken from luke smit's void rice repo
 # Enable colors and change prompt:
 autoload -U colors && colors	# Load colors
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+# PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+PS1="
+%B%{$fg[magenta]%}%~
+%{$fg[red]%}>%{$reset_color%}%b "
+
+# PS1="
+# %{$fg[magenta]%}%~
+# %B%{$fg[red]%}->%{$reset_color%}%b "
+
 # PS1="%B%{$fg[yellow]%}%n %{$fg[magenta]%}%~%{$reset_color%}$%b "
 # PS1=$'\n'"%B%{$fg[red]%}%~%{$reset_color%}"$'\n'">%b "
 setopt autocd		# Automatically cd into typed directory.
@@ -92,24 +100,26 @@ alias gc="git clone"
 
 alias grep="grep --color"
 alias ls='ls --color=auto'
+alias l='lsd'
 alias lf="lfub"
 
 alias mkd="mkdir -p"
-alias ll="ls -Alh"
+alias ll="lsd -al"
 
-alias m2="mpv --speed=2"
-alias m22="mpv --speed=2.22"
+alias m2="mpv -fs --speed=2.22 --save-position-on-quit"
 
 alias pg="ping google.com"
 alias nf="neofetch"
 
 alias y="ytfzf"
 alias yt='FZF_DEFAULT_OPTS="--layout=default --height 100%" && ytfzf -t'
-alias yth="yt-dlp -f 137+140"
+alias ythd="yt-dlp -f 137+140 "
 
 alias bl="bluetoothctl"
 
 alias xc="xclip -selection clipboard"
+
+alias mpv='mpv --save-position-on-quit'
 
 #### Porasuna cd 
 alias h1='cd ~/Pora/1-Higher-Math/1st/'
@@ -121,8 +131,16 @@ alias c2='cd ~/Pora/3-Chemistry/2nd'
 alias c2='cd ~/Pora/3-Chemistry/2nd'
 alias b1='cd ~/Pora/4-Biology/1st'
 alias b2='cd ~/Pora/4-Biology/2nd'
+alias sy='cd ~/Pora/0-Syl'
+
+alias z='zathura'
 
 
+
+alias pm="countdown 26m &&  mpv --loop=2 '/home/sk/vids/yt/Alarm-Clock Sound!!! [iNpXCzaWW1s].m4a'"
+alias prs="clear && printf '\n\n\n\nBismiAllah\n' && sleep 1 && countdown 40m &&  mpv --loop=2 '/home/sk/vids/yt/Alarm-Clock Sound!!! [iNpXCzaWW1s].m4a'"
+alias pr="clear && printf '\n\n\n\nBismiAllah\n' && sleep 1 && countdown 25m &&  mpv --loop=2 '/home/sk/vids/yt/Alarm-Clock Sound!!! [iNpXCzaWW1s].m4a'"
+# curl -s 'https://hamariweb.com/islam/tangail_prayer-timing13785.aspx' | grep 'data-label="Fajr">data-label="Sunrise"\|data-label="Dhuhr"\|data-label="Asr"\|data-label="Maghrib"\|data-label="Isha"' | sed  's/<td\ data-label="/\ \ \ \ / ; s/">/\ / ; s/<\/td>// ; s/" class="border-0//'
 
 # Load syntax highlighting;
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2>/dev/null

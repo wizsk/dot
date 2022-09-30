@@ -5,7 +5,8 @@ unsetopt PROMPT_SP
 
 # export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}" # if use dwm then use it
 export PATH="$PATH:$HOME/.local/bin"
-
+export PATH="$PATH:$HOME/.local/bin/sr-dwmblocks"
+export PATH="$PATH:$HOME/go/bin"
 # Default programs:
 export EDITOR="nvim"
 export TERMINAL="st"

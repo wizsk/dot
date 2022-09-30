@@ -3,6 +3,7 @@ font pango:Jetbrains Mono 8
 # Mod key
 set $mod Mod4
 
+
 # exec --no-startup-id picom --backend glx
 # exec --no-startup-id sxhkd
 # exec xmodmap ~/.Xmodmap
@@ -11,8 +12,13 @@ set $mod Mod4
 # exec --no-startup-id redshift -l 24.244968:89.911305
 
 # tittle bar
-for_window [class="^.8"] border pixel 1
-new_window 1pixel
+default_border pixel 2
+default_floating_border pixel 2
+hide_edge_borders both
+for_window [all] border pixel 2  # workaround for https://github.com/i3/i3/issues/5149
+
+# for_window [class="^.8"] border pixel 1
+# new_window 1pixel
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
