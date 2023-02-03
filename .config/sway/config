@@ -71,9 +71,10 @@ input "1739:0:Synaptics_TM3289-021" {
 }
 
 input type:keyboard {
-   xkb_layout us
-    xkb_options grp:win_space_toggle,compose:caps
-     xkb_options caps:escape
+    xkb_layout us,bd
+    xkb_variant ,probhat
+    xkb_options grp:win_space_toggle
+	#,caps:escape
 }
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs

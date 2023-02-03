@@ -1,17 +1,9 @@
 # taken from luke smit's void rice repo
-# Enable colors and change prompt:
 autoload -U colors && colors	# Load colors
-# PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 PS1="
 %B%{$fg[magenta]%}%~
 %{$fg[red]%}>%{$reset_color%}%b "
 
-# PS1="
-# %{$fg[magenta]%}%~
-# %B%{$fg[red]%}->%{$reset_color%}%b "
-
-# PS1="%B%{$fg[yellow]%}%n %{$fg[magenta]%}%~%{$reset_color%}$%b "
-# PS1=$'\n'"%B%{$fg[red]%}%~%{$reset_color%}"$'\n'">%b "
 setopt autocd		# Automatically cd into typed directory.
 stty stop undef		# Disable ctrl-s to freeze terminal.
 setopt interactive_comments
@@ -56,25 +48,6 @@ echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # Use lf to switch directories and bind it to ctrl-o
-lfcd () {
-    tmp="$(mktemp -uq)"
-    trap 'rm -f $tmp >/dev/null 2>&1' HUP INT QUIT TERM PWR EXIT
-    lfub -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-    fi
-}
-bindkey -s '^o' '^ulfcd\n'
-
-bindkey -s '^k' '^uquran -f\n'
-
-bindkey -s '^a' '^ubc -lq\n'
-
-# bindkey -s '^f' '^ulfub\n'
-bindkey -s '\ef' '^ulfub\n'
-# bindkey -s '^f' '^ucd "$(dirname "$(fzf)")"\n'
-
 bindkey '^[[P' delete-char
 
 # Edit line in vim with ctrl-e:
@@ -87,9 +60,9 @@ bindkey -M visual '^[[P' vi-delete
 
 
 ##alias
-alias p="sudo pacman"
-alias pi="sudo pacman -S"
-alias prm="sudo pacman -Rns"
+alias dn="sudo dnf"
+alias dni="sudo dnf install"
+alias dnr="sudo dnf remove"
 
 
 alias g="git"
@@ -108,40 +81,23 @@ alias ll="lsd -al"
 
 alias m2="mpv -fs --speed=2.22 --save-position-on-quit"
 
-alias pg="ping google.com"
 alias nf="neofetch"
 
 alias y="ytfzf"
-alias yt='FZF_DEFAULT_OPTS="--layout=default --height 100%" && ytfzf -t'
-alias ythd="yt-dlp -f 137+140 "
 
 alias bl="bluetoothctl"
 
-alias xc="xclip -selection clipboard"
+alias wlc="wl-copy"
+alias wlp="wl-paste"
 
 alias mpv='mpv --save-position-on-quit'
 
-#### Porasuna cd 
-alias h1='cd ~/Pora/1-Higher-Math/1st/'
-alias h2='cd ~/Pora/1-Higher-Math/2nd/'
-alias p1='cd ~/Pora/2-Physics/1st'
-alias p2='cd ~/Pora/2-Physics/2nd'
-alias c1='cd ~/Pora/3-Chemistry/1st'
-alias c2='cd ~/Pora/3-Chemistry/2nd'
-alias c2='cd ~/Pora/3-Chemistry/2nd'
-alias b1='cd ~/Pora/4-Biology/1st'
-alias b2='cd ~/Pora/4-Biology/2nd'
-alias sy='cd ~/Pora/0-Syl'
-
-alias z='zathura'
-
-
+alias tm='tmux a || tmux'
+## alias mnh='sudo mount -t cifs -o username=,password= //10.0.0.101/file /mnt/file'
 
 alias pm="countdown 26m &&  mpv --loop=2 '/home/sk/vids/yt/Alarm-Clock Sound!!! [iNpXCzaWW1s].m4a'"
 alias prs="clear && printf '\n\n\n\nBismiAllah\n' && sleep 1 && countdown 40m &&  mpv --loop=2 '/home/sk/vids/yt/Alarm-Clock Sound!!! [iNpXCzaWW1s].m4a'"
 alias pr="clear && printf '\n\n\n\nBismiAllah\n' && sleep 1 && countdown 25m &&  mpv --loop=2 '/home/sk/vids/yt/Alarm-Clock Sound!!! [iNpXCzaWW1s].m4a'"
-# curl -s 'https://hamariweb.com/islam/tangail_prayer-timing13785.aspx' | grep 'data-label="Fajr">data-label="Sunrise"\|data-label="Dhuhr"\|data-label="Asr"\|data-label="Maghrib"\|data-label="Isha"' | sed  's/<td\ data-label="/\ \ \ \ / ; s/">/\ / ; s/<\/td>// ; s/" class="border-0//'
 
-# Load syntax highlighting;
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2>/dev/null
-# echo -ne '\e[1 q'
+# Load syntax highlighting should be at last
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh  2>/dev/null # Works in fedora maybe 
