@@ -1,16 +1,23 @@
 # Read `man 5 sway` for a complete reference.
-bindsym Print exec grim - | tee ~/pix/ss/$(date '+%d_%m_%y_%I:%M_%p').png | wl-copy && notify-send "ScreenShot" "taken && Copied" -t 550
-
-font jetbrains mono 10
-
 ### Variables
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+
+font jetbrains mono 10
+
+# sticky window toggle
+bindsym $mod+Shift+s sticky toggle
+
+
+
+
 
 
 # MY execs
 exec gammastep -l 24.244968:89.911305
 exec dunst
+# abc ==  auto background changer
+exec abc 
 
 # Home row direction keys, like vim
 set $left h
@@ -26,7 +33,7 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
 ### Output configuration
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/sakib/pix/wall/city.jpg fill
+# output * bg /home/sakib/pix/wall/city.jpg fill
 
 # tittle, gap, border
 default_border pixel 2
@@ -73,7 +80,7 @@ input "1739:0:Synaptics_TM3289-021" {
 input type:keyboard {
     xkb_layout us,bd
     xkb_variant ,probhat
-    xkb_options grp:win_space_toggle
+    xkb_options grp:alt_space_toggle
 	#,caps:escape
 }
 #
@@ -93,10 +100,13 @@ input type:keyboard {
     # Start your launcher
     bindsym $mod+p exec $menu
 
+	
+	#My castom Bind
     bindsym $mod+y exec swaylock -f -c 000000
     bindsym $mod+i exec firefox
     bindsym $mod+Shift+i exec firefox --private-window
-
+    bindsym $mod+n exec notesnook
+	bindsym Print exec grim - | tee ~/pix/ss/$(date '+%d_%m_%y_%I:%M_%p').png | wl-copy && notify-send "ScreenShot" "taken && Copied" -t 550
 
 
     # backlight
@@ -123,7 +133,12 @@ input type:keyboard {
     # Change normal to inverse to use left mouse button for resizing and right
     # mouse button for dragging.
     floating_modifier $mod normal
+	
+	# toggle tiling / floating
+	# bindsym $mod+space floating toggle
 
+	# sticky window toggle
+	# bindsym $mod+s sticky toggle
     # Reload the configuration file
     bindsym $mod+Shift+c reload
 
@@ -225,10 +240,10 @@ mode "resize" {
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
+    bindsym $left resize shrink width 30px
+    bindsym $down resize grow height 30px
+    bindsym $up resize shrink height 30px
+    bindsym $right resize grow width 30px
 
     # Ditto, with arrow keys
     bindsym Left resize shrink width 10px
