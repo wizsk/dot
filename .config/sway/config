@@ -30,7 +30,7 @@ set $term alacritty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
-
+# set $menu rofi -show drun
 ### Output configuration
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /home/sakib/pix/wall/city.jpg fill
@@ -99,8 +99,9 @@ input type:keyboard {
 
     # Start your launcher
     bindsym $mod+p exec $menu
+    bindsym $mod+Shift+p exec wofi --show drun
 
-	
+
 	#My castom Bind
     bindsym $mod+y exec swaylock -f -c 000000
     bindsym $mod+i exec firefox
@@ -262,17 +263,7 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    # status_command while date +'%Y-%m-%d %I:%M %p'; do sleep 60; done
     swaybar_command waybar
-
-    # colors {
-    #     statusline #ffffff
-    #     background #323232
-    #     inactive_workspace #32323200 #32323200 #5c5c5c
-    # }
 }
 
 # class                 border  backgr. text    indicator child_border
