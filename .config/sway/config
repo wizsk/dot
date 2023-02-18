@@ -17,8 +17,8 @@ bindsym $mod+Shift+s sticky toggle
 exec gammastep -l 24.244968:89.911305
 exec dunst
 # abc ==  auto background changer
-exec abc 
-
+exec swaybg -m fill -i $HOME/pix/wal/$(ls ~/pix/wal/ | shuf -n 1)
+exec sleep 24 && notify-send -t 11000 "$(( $(dnf check-update | wc -l) - 1 )) Updates 󰚰 " "Are aviable to download 󰅢  "
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -108,6 +108,7 @@ input type:keyboard {
     bindsym $mod+Shift+i exec firefox --private-window
     bindsym $mod+n exec notesnook
 	bindsym Print exec grim - | tee ~/pix/ss/$(date '+%d_%m_%y_%I:%M_%p').png | wl-copy && notify-send "ScreenShot" "taken && Copied" -t 550
+    bindsym $mod+Shift+w exec swaybg -m fill -i $HOME/pix/wal/$(ls ~/pix/wal/ | shuf -n 1)
 
 
     # backlight

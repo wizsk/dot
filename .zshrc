@@ -74,7 +74,6 @@ alias gc="git clone"
 alias grep="grep --color"
 alias ls='ls --color=auto'
 alias l='lsd'
-alias lf="lfub"
 
 alias mkd="mkdir -p"
 alias ll="lsd -al"

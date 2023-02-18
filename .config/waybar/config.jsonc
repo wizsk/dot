@@ -4,9 +4,11 @@
     "modules-left": [
 	    "sway/workspaces",
 	    "sway/mode",
-	    "sway/scratchpad"
+	    "sway/scratchpad",
+	    "clock",
+        "custom/salah"
     ],
-    // "modules-center": ["sway/window"],
+    "modules-center": ["sway/window"],
     "modules-right": [
         "custom/nett",
 	    "pulseaudio",
@@ -14,9 +16,7 @@
 	    "backlight",
 		"idle_inhibitor",
 	    "battery",
-        "custom/salah",
 		"sway/language",
-	    "clock",
 	    "tray"
     ],
 
@@ -41,7 +41,7 @@
         }
     },
    "clock": {
-        "format": "{:%I:%M %p %a %d-%m-%y}",
+        "format": " {:%I:%M %p  󰸘 %a %d-%m-%y}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
     
