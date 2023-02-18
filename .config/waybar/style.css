@@ -1,7 +1,7 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: Jetbrains Mono, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    font-size: 12px;
 }
 
 window#waybar {
@@ -89,7 +89,7 @@ button:hover {
 #scratchpad,
 #mpd {
     border-radius: 7px;
-    padding: 0 10px;
+    padding: 0 5px;
     margin: 6px 2px;
     color: #ffffff;
 }
@@ -109,18 +109,12 @@ button:hover {
     margin-right: 0;
 }
 
-#clock {
-    background-color: #64727D;
-}
 
 #battery {
-    background-color: #ffffff;
-    color: #000000;
 }
 
 #battery.charging, #battery.plugged {
     color: #ffffff;
-    background-color: #26A65B;
 }
 
 @keyframes blink {
@@ -144,40 +138,6 @@ label:focus {
     background-color: #000000;
 }
 
-#cpu {
-    background-color: #2ecc71;
-    color: #000000;
-}
-
-#memory {
-    background-color: #9b59b6;
-}
-
-#disk {
-    background-color: #964B00;
-}
-
-#backlight {
-    background-color: #90b1b1;
-}
-
-#network {
-    background-color: #2980b9;
-}
-
-#network.disconnected {
-    background-color: #f53c3c;
-}
-
-#pulseaudio {
-    background-color: #f1c40f;
-    color: #000000;
-}
-
-#pulseaudio.muted {
-    background-color: #90b1b1;
-    color: #2a5c45;
-}
 
 #wireplumber {
     background-color: #fff0f5;
@@ -250,8 +210,6 @@ label:focus {
 }
 
 #language {
-    background: #00b093;
-    color: #740864;
     padding: 0 5px;
     margin: 6px 2px;
     min-width: 16px;
