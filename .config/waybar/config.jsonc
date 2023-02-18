@@ -6,7 +6,7 @@
 	    "sway/mode",
 	    "sway/scratchpad"
     ],
-    "modules-center": ["sway/window"],
+    // "modules-center": ["sway/window"],
     "modules-right": [
         "custom/nett",
 	    "pulseaudio",
@@ -14,6 +14,7 @@
 	    "backlight",
 		"idle_inhibitor",
 	    "battery",
+        "custom/salah",
 		"sway/language",
 	    "clock",
 	    "tray"
@@ -29,6 +30,9 @@
         "tooltip": true,
         "tooltip-format": "{app}: {title}"
     },
+    "sway/language": {
+        "format": "󰌌 {}"
+    }, 
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
@@ -77,6 +81,12 @@
         "interval" : 1,
         "exec" : "~/.config/waybar/scripts/nettraf",
     },
+    "custom/salah" : {
+        "format": " {}",
+        "interval" : 1200,
+        "exec" : "~/.config/waybar/scripts/salaht",
+    },
+ 
     "pulseaudio": {
         "scroll-step": 1, // %, can be a float
         "format": "{icon} {volume}% {format_source}",
