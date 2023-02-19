@@ -25,6 +25,10 @@ window#waybar.solo {
 }
 */
 
+.isRed {
+    color: red;
+}
+
 window#waybar.termite {
     background-color: #3F3F3F;
 }

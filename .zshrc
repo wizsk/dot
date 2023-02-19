@@ -4,6 +4,10 @@ PS1="
 %B%{$fg[magenta]%}%~
 %{$fg[red]%}>%{$reset_color%}%b "
 
+PS1="
+%B%{$fg[magenta]%}%~
+%{$fg[cyan]%}%{$reset_color%}%b  "
+
 setopt autocd		# Automatically cd into typed directory.
 stty stop undef		# Disable ctrl-s to freeze terminal.
 setopt interactive_comments
@@ -100,3 +104,4 @@ alias pr="clear && printf '\n\n\n\nBismiAllah\n' && sleep 1 && countdown 25m && 
 
 # Load syntax highlighting should be at last
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh  2>/dev/null # Works in fedora maybe 
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null

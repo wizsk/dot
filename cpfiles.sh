@@ -22,6 +22,8 @@ cp -r ~/.config/alacritty ./.config/alacritty
 echo "Copying mpv/*"
 cp ~/.config/mpv/*.conf ./.config/mpv/.
 
+echo "Copying wofi/style.css"
+cp ~/.config/wofi/style.css ./.config/wofi/.
 
 printf "\nShould .zsh copied? [Y/n] "
 read -r promt

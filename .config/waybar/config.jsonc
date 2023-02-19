@@ -33,7 +33,7 @@
     "sway/language": {
         "format": "󰌌 {}"
     }, 
-    "idle_inhibitor": {
+   "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
             "activated": "",
@@ -82,6 +82,7 @@
         "exec" : "~/.config/waybar/scripts/nettraf",
     },
     "custom/salah" : {
+        // "format": "<span class=\"isRed\"> </span>{}",
         "format": " {}",
         "interval" : 1200,
         "exec" : "~/.config/waybar/scripts/salaht",
