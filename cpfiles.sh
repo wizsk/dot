@@ -19,6 +19,8 @@ echo "Copying alacritty/alacritty.yml"
 rm -rf ./.config/alacritty 
 cp -r ~/.config/alacritty ./.config/alacritty 
 
+echo "Copying mpv/*"
+cp ~/.config/mpv/*.conf ./.config/mpv/.
 
 
 printf "\nShould .zsh copied? [Y/n] "
