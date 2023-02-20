@@ -22,12 +22,12 @@ cp -r ~/.config/alacritty ./.config/alacritty
 echo "Copying mpv/*"
 cp ~/.config/mpv/*.conf ./.config/mpv/.
 
-echo "Copying wofi/style.css"
-cp ~/.config/wofi/style.css ./.config/wofi/.
+echo "Copying wofi/*"
+cp ~/.config/wofi/* ./.config/wofi/.
 
-printf "\nShould .zsh copied? [Y/n] "
+printf "\nShould .zsh copied? [y/N] "
 read -r promt
-if [ -z "$promt" ]
+if [ "$promt" = "y" ]
 then
     echo ".zsh* and tmux is being copied"
     cp ~/.zshrc .
