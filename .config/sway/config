@@ -41,6 +41,7 @@ for_window [app_id="org.jellyfin.jellyfinmediaplayer"] inhibit_idle fullscreen
 
 # auto assing app to sertain workspace
 assign [app_id="firefox"] workspace number 3
+assign [app_id="org.jellyfin.jellyfinmediaplayer"] workspace number 2
 
 # inputs
 input "1739:0:Synaptics_TM3289-021" {
@@ -72,9 +73,9 @@ input type:keyboard {
     bindsym $mod+Shift+p exec wofi --show drun
     bindsym $mod+p exec wofi --show drun
     # Emoji insert
-    bindsym $mod+m exec ~/.config/wofi/wofi-emoji
+    bindsym $mod+period exec ~/.config/wofi/wofi-emoji
     # Emoji copy to clip
-    bindsym $mod+Shift+m exec ~/.config/wofi/wofi-emoji cp
+    bindsym $mod+Shift+period exec ~/.config/wofi/wofi-emoji cp
 
 
 	#My castom Bind

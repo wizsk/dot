@@ -86,6 +86,7 @@
         "format": " {}",
         "interval" : 1200,
         "exec" : "~/.config/waybar/scripts/salaht",
+        "signal": 9
     },
  
     "pulseaudio": {
