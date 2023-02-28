@@ -8,7 +8,7 @@ font jetbrains mono 10
 exec gammastep -l 24.244968:89.911305
 exec dunst
 # wallpaper
-exec swaybg -m fill -i $HOME/pix/wal/$(ls ~/pix/wal/ | shuf -n 1)
+exec ~/.config/sway/wall
 #Updates
 exec sleep 24 && notify-send -t 11000 "$(( $(dnf check-update | wc -l) - 1 )) Updates 󰚰 " "Are aviable to download 󰅢  "
 

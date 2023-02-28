@@ -9,7 +9,7 @@ fi
 
 
 echo "Copying sway/conf"
-cp ~/.config/sway/config ./.config/sway/.
+cp ~/.config/sway/* ./.config/sway/.
 
 echo "Copying waybar/*"
 rm -rf ./.config/waybar
