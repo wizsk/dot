@@ -2,12 +2,34 @@
 
 # cache path
 path="$HOME/.cache/stime"
+mkdir -p $path
+
+handle0_hour() {
+    # handle hour
+    if [ $(date '+%p') = 'AM' ] && [ $(date '+%l') -le 9 ]
+    then
+        echo $(date '+%l')
+    else
+        echo "$(date '+%H')" 
+    fi
+}
+
+
+# 0[some num] issue with dash not with #!/bin/bash
+handle0_min() {
+    # handle min
+    if [ ! -z $(date '+%M' | grep '^0') ]
+    then
+        echo $(date '+%M' | sed 's/^0//')
+    else
+        echo $(date '+%M')
+    fi 
+}
 
 # get time in second fomat
 toSecond() {
-    time="$(date '+%H:%M')" 
-    hr=$(echo "$time" | cut -d ':' -f 1)
-    min=$(echo "$time" | cut -d ':' -f 2)
+    hr=$(handle0_hour)
+    min=$(handle0_min)
     mhr=$((hr*60))
     min=$((min+mhr))
     echo "$((min*60))"
