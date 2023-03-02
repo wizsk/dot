@@ -84,7 +84,7 @@ input type:keyboard {
     bindsym $mod+Shift+i exec firefox --private-window
     bindsym $mod+n exec notesnook
 	bindsym Print exec grim - | tee ~/pix/ss/$(date '+%d_%m_%y_%I:%M_%p').png | wl-copy && notify-send "ScreenShot" "taken && Copied" -t 550
-    bindsym $mod+Shift+w exec killall swaybg && swaybg -m fill -i $HOME/pix/wal/$(ls ~/pix/wal/ | shuf -n 1)
+    bindsym $mod+Shift+w exec ~/.config/sway/wall
 
 
     # backlight
