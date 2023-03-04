@@ -8,6 +8,8 @@ then
 fi
 
 
+echo "Copying Nvim"
+cp ~/.config/nvim/init.lua ./.config/nvim/
 echo "Copying sway/conf"
 cp ~/.config/sway/* ./.config/sway/.
 
