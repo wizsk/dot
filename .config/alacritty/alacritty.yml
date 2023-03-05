@@ -54,8 +54,8 @@ key_bindings:
 
 
    # Vi Mode
-  - { key: Space,  mods: Control,       mode: ~Search,    action: ToggleViMode            }
-  - { key: Space,  mods: Control,       mode: Vi|~Search, action: ScrollToBottom          }
+  - { key: Space,  mods: Shift|Control,       mode: ~Search,    action: ToggleViMode            }
+  - { key: Space,  mods: Shift|Control,       mode: Vi|~Search, action: ScrollToBottom          }
   - { key: Escape,                      mode: Vi|~Search, action: ClearSelection          }
   - { key: I,                           mode: Vi|~Search, action: ToggleViMode            }
   - { key: I,                           mode: Vi|~Search, action: ScrollToBottom          }

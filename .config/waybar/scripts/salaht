@@ -35,13 +35,32 @@ toSecond() {
     echo "$((min*60))"
 }
 
+get_time() {
+    curl -s 'https://hamariweb.com/islam/tangail_prayer-timing13785.aspx' |
+        grep 'data-label="Fajr"\|data-label="Sunrise"\|data-label="Dhuhr"\|data-label="Asr"\|data-label="Maghrib"\|data-label="Isha"' |
+        sed  's/<td\ data-label="// ; s/">/\ / ; s/<\/td>// ; s/" class="border-0//' > ${path}/new
 
-# get time and fotmat it
-curl -s 'https://hamariweb.com/islam/tangail_prayer-timing13785.aspx' |
-    grep 'data-label="Fajr"\|data-label="Sunrise"\|data-label="Dhuhr"\|data-label="Asr"\|data-label="Maghrib"\|data-label="Isha"' |
-    sed  's/<td\ data-label="// ; s/">/\ / ; s/<\/td>// ; s/" class="border-0//' > ${path}/new
+}
 
-## If there is no net then show the archived vertion "cached version"
+
+if [ ! -f ${path}/new ]
+then
+    get_time
+    tim=$( head -1 < "$path/new" )
+    [ -z "$tim" ] && cat ${path}/new > ${path}/old
+fi
+
+
+
+[ -f ${path}/old ] && old_file_date=$(stat ${path}/old | grep 'Modify' | cut -d ' ' -f 2 | cut -d '-' -f 3 | sed 's/^0//')
+if [ -f ${path}/old ] && [ $(date '+%d' | sed 's/^0//') != ${old_file_date} ]
+then
+    # get time and fotmat it
+    get_time
+fi
+
+
+
 tim=$( head -1 < "$path/new" )
 if [ -z "$tim" ]
 then

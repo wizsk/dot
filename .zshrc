@@ -61,7 +61,8 @@ bindkey -M vicmd '^[[P' vi-delete-char
 bindkey -M vicmd '^e' edit-command-line
 bindkey -M visual '^[[P' vi-delete
 
-
+# cd
+bindkey -s '^f' '^ucd "$(dirname "$(fzf)")"\n'
 
 ##alias
 alias dn="sudo dnf"
@@ -93,6 +94,9 @@ alias bl="bluetoothctl"
 alias wlc="wl-copy"
 alias wlp="wl-paste"
 
+alias code="codium"
+
+alias vim="nvim"
 alias mpv='mpv --save-position-on-quit'
 
 alias tm='tmux a || tmux'
