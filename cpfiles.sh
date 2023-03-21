@@ -21,6 +21,8 @@ echo "Copying alacritty/alacritty.yml"
 rm -rf ./.config/alacritty 
 cp -r ~/.config/alacritty ./.config/alacritty 
 
+echo "Copying foo t"
+cp ~/.config/foot/foot.ini ./.config/foot
 echo "Copying mpv/*"
 cp ~/.config/mpv/*.conf ./.config/mpv/.
 

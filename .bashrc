@@ -25,7 +25,7 @@ HISTSIZE= HISTFILESIZE= # INfinite history
 
 #export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]hr \W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
 
-export PS1="
+PS1="
  \[$(tput bold)\]\[$(tput setaf 1)\]\[$(tput setaf 3)\]\w
 \[$(tput setaf 2)\]> \[$(tput sgr0)\]"
 
