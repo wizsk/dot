@@ -21,11 +21,13 @@ HISTSIZE= HISTFILESIZE= # INfinite history
 #       PS1       #
 ###################
 
-PS1='[\u@\h \W]\$ '
+# PS1='[\u@\h \W]\$ '
 
 #export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]hr \W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
 
-export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]🐣 \W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
+export PS1="
+ \[$(tput bold)\]\[$(tput setaf 1)\]\[$(tput setaf 3)\]\w
+\[$(tput setaf 2)\]> \[$(tput sgr0)\]"
 
 ###################
 #      alias      #
@@ -39,8 +41,8 @@ alias prm="sudo pacman -Rns"
 
 ### colored output ###
 alias grep="grep --color"
-alias ls='ls --color=auto'
-alias ll="ls -Alh"
+alias ls='ls -F --color=auto'
+alias ll="ls -F -Alh"
 
 #### git ###
 alias g="git"
@@ -72,6 +74,21 @@ export PATH=$PATH:/home/sk/.local/bin/sr-dwmblocks
 
 #####
 ## Manpage Stufffff
+osc7_cwd() {
+    local strlen=${#PWD}
+    local encoded=""
+    local pos c o
+    for (( pos=0; pos<strlen; pos++ )); do
+        c=${PWD:$pos:1}
+        case "$c" in
+            [-/:_.!\'\(\)~[:alnum:]] ) o="${c}" ;;
+            * ) printf -v o '%%%02X' "'${c}" ;;
+        esac
+        encoded+="${o}"
+    done
+    printf '\e]7;file://%s%s\e\\' "${HOSTNAME}" "${encoded}"
+}
+PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }osc7_cwd
 
 alias man="LESS='+Gg' man"
 export LESS_TERMCAP_mb=$'\e[1;32m'
@@ -82,4 +99,3 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 
-alias sx="source ~/.xinitrc"

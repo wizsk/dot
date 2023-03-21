@@ -6,8 +6,11 @@ unsetopt PROMPT_SP
 # export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}" # if use dwm then use it
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.local/go/bin"
+export PATH="$PATH:$HOME/.local/cargo/bin"
 
+# HOME FOR GO AND RUST
 export GOPATH="$HOME/.local/go"
+export CARGO_HOME="$HOME/.local/cargo"
 
 # Default programs:
 export EDITOR="nvim"

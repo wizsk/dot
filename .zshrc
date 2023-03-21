@@ -1,12 +1,9 @@
 # taken from luke smit's void rice repo
 autoload -U colors && colors	# Load colors
-PS1="
-%B%{$fg[magenta]%}%~
-%{$fg[red]%}>%{$reset_color%}%b "
 
 PS1="
-%B%{$fg[magenta]%}%~
-%{$fg[cyan]%}%{$reset_color%}%b  "
+ %B%{$fg[magenta]%}%~
+%{$fg[blue]%}>%{$reset_color%}%b "
 
 setopt autocd		# Automatically cd into typed directory.
 stty stop undef		# Disable ctrl-s to freeze terminal.
@@ -34,23 +31,22 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
-
 # Change cursor shape for different vi modes.
-function zle-keymap-select () {
-    case $KEYMAP in
-        vicmd) echo -ne '\e[1 q';;      # block
-        viins|main) echo -ne '\e[5 q';; # beam
-    esac
-}
-zle -N zle-keymap-select
-zle-line-init() {
-    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-    echo -ne "\e[5 q"
-}
-zle -N zle-line-init
-echo -ne '\e[5 q' # Use beam shape cursor on startup.
-preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
-
+# function zle-keymap-select () {
+#     case $KEYMAP in
+#         vicmd) echo -ne '\e[1 q';;      # block
+#         viins|main) echo -ne '\e[5 q';; # beam
+#     esac
+# }
+# zle -N zle-keymap-select
+# zle-line-init() {
+#     zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+#     echo -ne "\e[5 q"
+# }
+# zle -N zle-line-init
+# echo -ne '\e[5 q' # Use beam shape cursor on startup.
+# preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+#
 # Use lf to switch directories and bind it to ctrl-o
 bindkey '^[[P' delete-char
 
@@ -77,7 +73,7 @@ alias gp="git push"
 alias gc="git clone"
 
 alias grep="grep --color"
-alias ls='ls --color=auto'
+alias ls='ls -F --color=auto'
 alias l='lsd'
 
 alias mkd="mkdir -p"
@@ -96,16 +92,15 @@ alias wlp="wl-paste"
 
 alias code="codium"
 
-alias vim="nvim"
 alias mpv='mpv --save-position-on-quit'
 
 alias tm='tmux a || tmux'
+
+alias rsync='rsync --progress'
 ## alias mnh='sudo mount -t cifs -o username=,password= //10.0.0.101/file /mnt/file'
 
-alias pm="countdown 26m &&  mpv --loop=2 '/home/sk/vids/yt/Alarm-Clock Sound!!! [iNpXCzaWW1s].m4a'"
-alias prs="clear && printf '\n\n\n\nBismiAllah\n' && sleep 1 && countdown 40m &&  mpv --loop=2 '/home/sk/vids/yt/Alarm-Clock Sound!!! [iNpXCzaWW1s].m4a'"
-alias pr="clear && printf '\n\n\n\nBismiAllah\n' && sleep 1 && countdown 25m &&  mpv --loop=2 '/home/sk/vids/yt/Alarm-Clock Sound!!! [iNpXCzaWW1s].m4a'"
-
+# use block for cursor
+echo -ne '\e[1 q'
 # Load syntax highlighting should be at last
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh  2>/dev/null # Works in fedora maybe 
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null

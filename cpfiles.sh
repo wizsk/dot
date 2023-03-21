@@ -31,9 +31,11 @@ printf "\nShould .zsh copied? [y/N] "
 read -r promt
 if [ "$promt" = "y" ]
 then
-    echo ".zsh* and tmux is being copied"
+    echo ".zsh, bash and tmux is being copied"
     cp ~/.zshrc .
     cp ~/.zprofile .
+    cp ~/.bashrc .
+    cp ~/.bash_profile .
     cp ~/.tmux.conf .
 fi 
 
