@@ -23,6 +23,24 @@
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
+    // Modules configuration
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1": ">_",
+            // "2": "",
+            "2": "󰅩",
+            "3": "",
+            "4": "",
+            "10": "",
+            // "urgent": "",
+            // "focused": "",
+            // "default": ""
+        }
+    },
+
     "sway/scratchpad": {
         "format": "{icon} {count}",
         "show-empty": false,
