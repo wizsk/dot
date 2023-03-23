@@ -41,10 +41,12 @@ for_window [app_id="firefox"] inhibit_idle fullscreen
 for_window [app_id="mpv"] inhibit_idle fullscreen
 for_window [app_id="org.jellyfin.jellyfinmediaplayer"] inhibit_idle fullscreen
 
+for_window [app_id="firefox"] fullscreen toggle
 
 # auto assing app to sertain workspace
 assign [app_id="firefox"] workspace number 3
 assign [app_id="Notesnook"] workspace number 2
+assign [app_id="VSCodium"] workspace number 2
 assign [app_id="org.jellyfin.jellyfinmediaplayer"] workspace number 4
 
 # inputs
