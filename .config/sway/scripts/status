@@ -25,19 +25,20 @@ bat_stat() {
 
 vol() {
     vol=$(pactl get-sink-volume @DEFAULT_SINK@ | grep 'Volume' | cut -d '%' -f 1 | cut -d '/' -f 2 | tr -d ' ')
-   	if [ "$(pactl get-sink-mute @DEFAULT_SINK@)" = 'Mute: yes' ] ; then
+
+    if [ "$(pactl get-sink-mute @DEFAULT_SINK@)" = 'Mute: yes' ] ; then
         vol="󰝟"
     elif [ "$vol" -le 20 ]
     then
-        vol=" $vol"
-    elif [ "$vol" -le 40  ]
+        vol=" $vol%"
+    elif [ "$vol%" -le 40  ]
     then
-        vol=" $vol"
+        vol=" $vol%"
     elif [ "$vol" -le 60 ]
     then
-        vol="󰕾 $vol"
+        vol="󰕾 $vol%"
     else
-        vol=" $vol"
+        vol=" $vol%"
     fi
 
     echo "$vol"
