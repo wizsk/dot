@@ -3,6 +3,7 @@ set $mod Mod4
 
 font jetbrains mono 10
 
+# bindsym $mod+Shift+d status_command toggle
 
 # MY execs
 exec foot --server

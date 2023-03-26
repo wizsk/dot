@@ -25,8 +25,14 @@ cp -r ~/.config/alacritty ./.config/alacritty
 
 echo "Copying foo t"
 cp ~/.config/foot/foot.ini ./.config/foot
+
+
 echo "Copying mpv/*"
 cp ~/.config/mpv/*.conf ./.config/mpv/.
+
+echo "Copying ytfzf/*"
+cp ~/.config/ytfzf/* ./.config/ytfzf/.
+
 
 echo "Copying wofi/*"
 cp ~/.config/wofi/* ./.config/wofi/.
