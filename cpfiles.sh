@@ -13,7 +13,7 @@ cp ~/.config/nvim/init.lua ./.config/nvim/
 
 echo "Copying sway/conf"
 rm -r ./.config/sway
-cp ~/.config/sway ./.config/.
+cp -r ~/.config/sway ./.config/.
 
 # echo "Copying waybar/*"
 # rm -rf ./.config/waybar
