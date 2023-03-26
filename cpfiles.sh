@@ -10,12 +10,14 @@ fi
 
 echo "Copying Nvim"
 cp ~/.config/nvim/init.lua ./.config/nvim/
-echo "Copying sway/conf"
-cp ~/.config/sway/* ./.config/sway/.
 
-echo "Copying waybar/*"
-rm -rf ./.config/waybar
-cp -r ~/.config/waybar ./.config/waybar 
+echo "Copying sway/conf"
+rm -r ./.config/sway
+cp ~/.config/sway ./.config/.
+
+# echo "Copying waybar/*"
+# rm -rf ./.config/waybar
+# cp -r ~/.config/waybar ./.config/waybar 
 
 echo "Copying alacritty/alacritty.yml"
 rm -rf ./.config/alacritty 

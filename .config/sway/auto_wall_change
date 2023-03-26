@@ -1,8 +1,0 @@
-#!/bin/sh
-
-while true
-do
-    ~/.config/sway/wall
-    sleep 900
-done
-
