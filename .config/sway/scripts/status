@@ -105,4 +105,4 @@ net () {
 
 back=$(brightnessctl  | grep 'Current' | cut -d '(' -f 2 | cut -d ')' -f 1)
 
-echo "$(net_traf) | $(net) | $(bat_stat)  ${back} | $(vol) | $(salat_time) | $(date '+ %I:%M %p 󰸘 %a %d-%m-%y' )"
+echo "$(net_traf) | $(net) | $(bat_stat)  ${back} | $(vol) | $(salat_time) | $(date '+ %I:%M:%S %p 󰸘 %a %d-%m-%y' )"

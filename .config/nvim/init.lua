@@ -125,6 +125,21 @@ require('lazy').setup({
         section_separators = '',
       },
     },
+    {
+      "ray-x/go.nvim",
+      dependencies = {  -- optional packages
+        "ray-x/guihua.lua",
+        "neovim/nvim-lspconfig",
+        "nvim-treesitter/nvim-treesitter",
+      },
+      config = function()
+        require("go").setup()
+      end,
+      event = {"CmdlineEnter"},
+      ft = {"go", 'gomod'},
+      build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
+    }
+
   },
 
   -- { -- Add indentation guides even on blank lines
@@ -403,7 +418,7 @@ end
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
   --  clangd = {},
-  -- gopls = {},
+  gopls = {},
   -- pyright = {},
   -- rust_analyzer = {},
   -- tsserver = {},
