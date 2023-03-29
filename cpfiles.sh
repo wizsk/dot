@@ -15,9 +15,9 @@ echo "Copying sway/conf"
 rm -r ./.config/sway
 cp -r ~/.config/sway ./.config/.
 
-# echo "Copying waybar/*"
-# rm -rf ./.config/waybar
-# cp -r ~/.config/waybar ./.config/waybar 
+echo "Copying waybar/*"
+rm -rf ./.config/waybar
+cp -r ~/.config/waybar ./.config/waybar 
 
 echo "Copying alacritty/alacritty.yml"
 rm -rf ./.config/alacritty 

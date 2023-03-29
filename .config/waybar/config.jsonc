@@ -1,23 +1,34 @@
 {
     "height": 18, 
+    "position": "bottom",
     "spacing": 6,
     "modules-left": [
-	    "sway/workspaces",
-	    "sway/mode",
-	    "sway/scratchpad",
-	    "clock",
+        "sway/workspaces",
+        "sway/mode",
+        "sway/scratchpad",
+        "idle_inhibitor"
+        // "clock",
+        // "custom/salah"
+    ],
+    // "modules-center": ["sway/window"],
+    "modules-center": [
+        "clock",
+        "custom/sep",
         "custom/salah"
     ],
-    "modules-center": ["sway/window"],
     "modules-right": [
         "custom/nett",
-	    "pulseaudio",
-	    "network",
-	    "backlight",
-		"idle_inhibitor",
-	    "battery",
-		"sway/language",
-	    "tray"
+        "custom/sep",
+        "pulseaudio",
+        "custom/sep",
+        "backlight",
+        "custom/sep",
+        "battery",
+        "custom/sep",
+        "network",
+        "custom/sep",
+        "sway/language",
+        "tray"
     ],
 
     "sway/mode": {
@@ -29,7 +40,10 @@
         "all-outputs": true,
         "format": "{icon}",
         "format-icons": {
-            "1": ">_",
+            // "1": ">_",
+            // "1": "󰮤",
+            // "1": "",
+            "1": "󱈱",
             // "2": "",
             "2": "󰅩",
             "3": "",
@@ -49,20 +63,22 @@
         "tooltip-format": "{app}: {title}"
     },
     "sway/language": {
-        "format": "󰌌 {}"
+        "format": "󰌌 {}",
+        "tooltip": false
     }, 
-   "idle_inhibitor": {
-        "format": "{icon}",
+    "idle_inhibitor": {
+        "format": " {icon}",
         "format-icons": {
             "activated": "",
             "deactivated": ""
         }
     },
-   "clock": {
+    "clock": {
         "format": " {:%I:%M %p  󰸘 %a %d-%m-%y}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "tooltip": false
     },
-    
+
     "backlight": {
         "device": "intel_backlight",
         "format": "{icon} {percent}%",
@@ -93,10 +109,14 @@
         "format-disconnected": "⚠ Disconnected",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
-    
+
+    "custom/sep" : {
+        "format": "|",
+    },   
     "custom/nett" : {
         "format": "{}",
         "interval" : 1,
+        "tooltip": false,
         "exec" : "~/.config/waybar/scripts/nettraf",
     },
     "custom/salah" : {
@@ -104,9 +124,10 @@
         "format": " {}",
         "interval" : 1200,
         "exec" : "~/.config/waybar/scripts/salaht",
-        "signal": 9
+        "signal": 9,
+        "tooltip": false
     },
- 
+
     "pulseaudio": {
         "scroll-step": 1, // %, can be a float
         "format": "{icon} {volume}% {format_source}",
