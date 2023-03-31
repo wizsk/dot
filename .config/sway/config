@@ -85,6 +85,8 @@ input type:keyboard {
     bindsym $mod+period exec ~/.config/wofi/wofi-emoji
     # Emoji copy to clip
     bindsym $mod+Shift+period exec ~/.config/wofi/wofi-emoji cp
+    # the go book
+    bindsym $mod+Shift+g exec zathura ~/doc/books/the-go-book.pdf
 
 
 	#My castom Bind
