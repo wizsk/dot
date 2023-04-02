@@ -6,7 +6,6 @@ font jetbrains mono 10
 # bindsym $mod+Shift+d status_command toggle
 
 # MY execs
-exec foot --server
 exec gammastep -l 24.244968:89.911305
 exec dunst
 # wallpaper
@@ -21,7 +20,7 @@ set $up k
 set $right l
 
 # Your preferred terminal emulator
-set $term footclient
+set $term foot
 
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
@@ -88,8 +87,10 @@ input type:keyboard {
     # the go book
     bindsym $mod+Shift+g exec zathura ~/doc/books/the-go-book.pdf
 
+    # book
+    bindsym $mod+Shift+b exec ~/.config/sway/scripts/book
 
-	#My castom Bind
+    #My castom Bind
     bindsym $mod+y exec swaylock -f -c 000000
     bindsym $mod+i exec firefox
     bindsym $mod+Shift+i exec firefox --private-window
