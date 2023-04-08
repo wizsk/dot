@@ -19,6 +19,10 @@ echo "Copying waybar/*"
 rm -rf ./.config/waybar
 cp -r ~/.config/waybar ./.config/waybar 
 
+echo "Copying zathura/*"
+cp -r ~/.config/zathura/* ./.config/zathura 
+
+
 echo "Copying alacritty/alacritty.yml"
 rm -rf ./.config/alacritty 
 cp -r ~/.config/alacritty ./.config/alacritty 

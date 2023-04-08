@@ -1,0 +1,11 @@
+set font jetbrainsmonomedium
+# set font 11
+# set default-bg '#111111'
+set default-bg '#231c1c'
+set statusbar-home-tilde true
+set statusbar-bg '#231c1c' 
+
+map i toggle_fullscreen
+
+map K zoom in
+map J zoom out
