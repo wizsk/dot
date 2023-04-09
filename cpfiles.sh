@@ -22,6 +22,8 @@ cp -r ~/.config/waybar ./.config/waybar
 echo "Copying zathura/*"
 cp -r ~/.config/zathura/* ./.config/zathura 
 
+echo "Copying yt-dlp/*"
+cp -r ~/.config/yt-dlp/* ./.config/yt-dlp 
 
 echo "Copying alacritty/alacritty.yml"
 rm -rf ./.config/alacritty 
