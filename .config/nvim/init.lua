@@ -4,7 +4,10 @@ require("src.set")
 require("src.dont-get-it")
 require("src.treesitter")
 require("src.lsp-mason")
+-- i don't use telescope, so 
+-- require("src.telescope")
 
+-- lua doc: https://learnxinyminutes.com/docs/lua/
 -- require("src.set")
 --[[
 --
