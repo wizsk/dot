@@ -9,7 +9,8 @@ fi
 
 
 echo "Copying Nvim"
-cp ~/.config/nvim/init.lua ./.config/nvim/
+rm -rf ./.config/nvim
+cp -r ~/.config/nvim ./.config/.
 
 echo "Copying sway/conf"
 rm -r ./.config/sway

@@ -46,6 +46,8 @@ for_window [app_id="org.jellyfin.jellyfinmediaplayer"] inhibit_idle fullscreen
 # auto assing app to sertain workspace
 assign [app_id="firefox"] workspace number 3
 assign [app_id="Notesnook"] workspace number 2
+assign [app_id="signal"] workspace number 4
+assign [app_id="obsidian"] workspace number 2
 assign [app_id="VSCodium"] workspace number 2
 assign [app_id="org.jellyfin.jellyfinmediaplayer"] workspace number 4
 
@@ -94,10 +96,11 @@ input type:keyboard {
     bindsym $mod+y exec swaylock -f -c 000000
     bindsym $mod+i exec firefox
     bindsym $mod+Shift+i exec firefox --private-window
-    bindsym $mod+n exec flatpak run com.notesnook.Notesnook
+    bindsym $mod+n exec flatpak run md.obsidian.Obsidian
+    bindsym $mod+Shift+m exec flatpak run org.signal.Signal
     bindsym $mod+c exec codium
     bindsym Print exec grim - | tee ~/pix/ss/$(date '+%d_%m_%y_%I:%M_%p').png | wl-copy && notify-send "ScreenShot" "taken && Copied" -t 550
-    bindsym $mod+Shift+w exec ~/.config/sway/scripts/wall
+    bindsym $mod+Shift+w exec killall swaybg; swaybg -m fill -i ~/pix/wal/$(ls ~/pix/wal | shuf -n 1)
 
 
     # backlight

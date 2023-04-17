@@ -10,3 +10,5 @@ map i toggle_fullscreen
 
 map K zoom in
 map J zoom out
+
+set selection-clipboard clipboard
