@@ -16,8 +16,8 @@ vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>y", "\"+Y")
 
 
--- puter @bal sal
-vim.keymap.set("n", "q", "<nop>")
+-- puter worst place
+-- vim.keymap.set("n", "q", "<nop>")
 vim.keymap.set("n", "Q", "<nop>")
 
 -- void register

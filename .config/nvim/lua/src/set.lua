@@ -47,7 +47,7 @@ vim.o.timeoutlen = 300
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
--- NOTE: You should make sure your terminal supports this
+-- NOTE: make sure your terminal supports this
 vim.o.termguicolors = true
 
 
@@ -57,4 +57,8 @@ vim.api.nvim_set_hl(0, 'LineNrAbove', { fg='#727272' })
 -- vim.api.nvim_set_hl(0, 'LineNr', { fg='yellow' })
 vim.api.nvim_set_hl(0, 'LineNrBelow', { fg='#727272' })
 
+-- Explorer
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25
 
