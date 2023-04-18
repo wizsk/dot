@@ -51,3 +51,10 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 
 
+
+-- line number color change korlam
+vim.api.nvim_set_hl(0, 'LineNrAbove', { fg='#727272' })
+-- vim.api.nvim_set_hl(0, 'LineNr', { fg='yellow' })
+vim.api.nvim_set_hl(0, 'LineNrBelow', { fg='#727272' })
+
+
