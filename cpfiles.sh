@@ -44,6 +44,10 @@ cp ~/.config/ytfzf/* ./.config/ytfzf/.
 echo "Copying wofi/*"
 cp ~/.config/wofi/* ./.config/wofi/.
 
+echo "Copying tmux/*"
+cp ~/.config/tmux/* ./.config/tmux/.
+
+
 printf "\nShould .zsh copied? [y/N] "
 read -r promt
 if [ "$promt" = "y" ]
@@ -53,6 +57,5 @@ then
     cp ~/.zprofile .
     cp ~/.bashrc .
     cp ~/.bash_profile .
-    cp ~/.tmux.conf .
 fi 
 
