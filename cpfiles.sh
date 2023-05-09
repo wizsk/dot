@@ -47,6 +47,8 @@ cp ~/.config/wofi/* ./.config/wofi/.
 echo "Copying tmux/*"
 cp ~/.config/tmux/* ./.config/tmux/.
 
+echo "Copying starship/*"
+cp ~/.config/starship.toml ./.config/
 
 printf "\nShould .zsh copied? [y/N] "
 read -r promt
