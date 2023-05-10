@@ -12,6 +12,11 @@ echo "Copying Nvim"
 rm -rf ./.config/nvim
 cp -r ~/.config/nvim ./.config/.
 
+echo "Copying Fish"
+rm -rf ./.config/fish
+cp -r ~/.config/fish ./.config/.
+
+
 echo "Copying sway/conf"
 rm -r ./.config/sway
 cp -r ~/.config/sway ./.config/.
