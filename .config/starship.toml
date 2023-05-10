@@ -1,5 +1,6 @@
 # Wait 10 milliseconds for starship to check files under the current directory.
 scan_timeout = 2000
+# path 
 
 [character]
 success_symbol = "[❯](bold yellow)"
@@ -9,7 +10,7 @@ vimcmd_symbol = "[❮](bold blue)"
 [git_status]
 format = '([\[$all_status$ahead_behind\]]($style) )'
 # conflicted = '🏳'
-ahead = ''
+ahead = ' '
 behind = ' '
 # diverged = '😵'
 # up_to_date = ' '
@@ -37,6 +38,7 @@ symbol = " "
 symbol = " "
 
 [directory]
+truncation_length = 10
 read_only = " "
 
 [docker_context]

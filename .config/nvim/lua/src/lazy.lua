@@ -130,6 +130,7 @@ require('lazy').setup({
     build = ":TSUpdate",
   },
   { 'ThePrimeagen/vim-be-good' },
+  { 'xiyaowong/transparent.nvim', lazy = false, },
   -- { 'nvim-tree/nvim-web-devicons' },
   -- { 'prichrd/netrw.nvim' },
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
