@@ -129,8 +129,22 @@ require('lazy').setup({
     },
     build = ":TSUpdate",
   },
+
+  {
+    'xiyaowong/transparent.nvim',
+    lazy = false,
+  },
+
+  -- prime plugs
   { 'ThePrimeagen/vim-be-good' },
-  { 'xiyaowong/transparent.nvim', lazy = false, },
+  {
+    'ThePrimeagen/harpoon',
+    dependencies = { 'nvim-lua/plenary.nvim' }
+  },
+  {
+    'toppair/peek.nvim',
+    build = 'deno task --quiet build:fast',
+  },
   -- { 'nvim-tree/nvim-web-devicons' },
   -- { 'prichrd/netrw.nvim' },
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart

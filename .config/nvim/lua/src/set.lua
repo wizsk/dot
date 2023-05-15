@@ -24,7 +24,7 @@ vim.opt.scrolloff = 8
 
 
 -- Enable mouse mode
-vim.o.mouse = 'a'
+vim.o.mouse = ""
 
 -- Enable break indent
 vim.o.breakindent = true
@@ -61,4 +61,5 @@ vim.api.nvim_set_hl(0, 'LineNrBelow', { fg='#727272' })
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
+
 

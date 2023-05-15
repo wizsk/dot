@@ -4,6 +4,9 @@ vim.g.maplocalleader = ' '
 
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
+-- spell check
+vim.opt.spelllang = 'en_us'
+
 -- file ex
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })

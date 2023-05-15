@@ -11,6 +11,7 @@ exec dunst
 # wallpaper
 exec ~/.config/sway/scripts/wall
 #Updates
+exec sleep 2 && notify-send -t 11000 "$(~/.local/bin/quoter)"
 exec sleep 24 && notify-send -t 11000 "$(( $(dnf check-update | wc -l) - 1 )) Updates 󰚰 " "Are aviable to download 󰅢  "
 
 # Home row direction keys, like vim
@@ -43,6 +44,8 @@ for_window [app_id="org.jellyfin.jellyfinmediaplayer"] inhibit_idle fullscreen
 
 # for_window [app_id="firefox"] fullscreen toggle
 
+# donnt focus peek markdwn preview
+no_focus [title="^Peek preview$"]
 # auto assing app to sertain workspace
 assign [app_id="firefox"] workspace number 3
 assign [app_id="Notesnook"] workspace number 2
