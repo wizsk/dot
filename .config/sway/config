@@ -64,8 +64,9 @@ input "1739:0:Synaptics_TM3289-021" {
 }
 
 input "type:keyboard" {
-    xkb_layout us,bd,ar
-    xkb_variant ,probhat,
+    xkb_layout us,ar
+    # xkb_layout us,bd,ar
+    # xkb_variant ,probhat,
     xkb_options grp:alt_space_toggle
     #repeat_delay 100
     #repeat_rate 9

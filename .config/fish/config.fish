@@ -10,6 +10,11 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
+function curlN
+    curl $argv -O /dev/null
+end
+
+
 export DENO_INSTALL="/home/sakib/.local/deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
@@ -41,6 +46,7 @@ alias wlp="wl-paste"
 alias code="codium"
 alias mpv='mpv --save-position-on-quit'
 alias tm='tmux a || tmux'
+alias z='zathura'
 alias rsync='rsync --progress'
 
 ~/.local/bin/quoter f

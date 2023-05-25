@@ -43,6 +43,21 @@ get_time() {
 }
 
 
+next_salah_time() {
+    # fajr
+    [ $(toSecond) -ge 1 ] && [ $(toSecond) -le 19200 ] && sed -n 1p "$time" && exit
+    # sunrise
+    [ $(toSecond) -ge 19260 ] && [ $(toSecond) -le 25200 ] && sed -n 2p "$time" && exit
+    # dhuhr
+    [ $(toSecond) -ge 25201 ] && [ $(toSecond) -le 49200 ] && sed -n 3p "$time" && exit
+    # asr
+    [ $(toSecond) -ge 49201 ] && [ $(toSecond) -le 60000 ] && sed -n 4p "$time" && exit
+    # magrib
+    [ $(toSecond) -ge 60001 ] && [ $(toSecond) -le 64800 ] && sed -n 5p "$time" && exit
+    # isha
+    [ $(toSecond) -ge 64801 ] && [ $(toSecond) -le 86400 ] && sed -n 6p "$time" && exit
+}
+
 if [ ! -f ${path}/new ]
 then
     get_time
@@ -65,13 +80,7 @@ tim=$( head -1 < "$path/new" )
 if [ -z "$tim" ]
 then
     time=${path}/old
-
-    [ $(toSecond) -ge 1 ] && [ $(toSecond) -le 19200 ] && sed -n 1p "$time" && exit
-    [ $(toSecond) -ge 19260 ] && [ $(toSecond) -le 25200 ] && sed -n 2p "$time" && exit
-    [ $(toSecond) -ge 25201 ] && [ $(toSecond) -le 49200 ] && sed -n 3p "$time" && exit
-    [ $(toSecond) -ge 49201 ] && [ $(toSecond) -le 60000 ] && sed -n 4p "$time" && exit
-    [ $(toSecond) -ge 60001 ] && [ $(toSecond) -le 64800 ] && sed -n 5p "$time" && exit
-    [ $(toSecond) -ge 64801 ] && [ $(toSecond) -le 86400 ] && sed -n 6p "$time" && exit
+    next_salah_time
     exit
 fi
 
@@ -79,10 +88,5 @@ fi
 # if net is avialable store it and print it
 cat ${path}/new > ${path}/old
 time=${path}/new
-[ $(toSecond) -ge 1 ] && [ $(toSecond) -le 19200 ] && sed -n 1p "$time" && exit
-[ $(toSecond) -ge 19260 ] && [ $(toSecond) -le 25200 ] && sed -n 2p "$time" && exit
-[ $(toSecond) -ge 25201 ] && [ $(toSecond) -le 49200 ] && sed -n 3p "$time" && exit
-[ $(toSecond) -ge 49201 ] && [ $(toSecond) -le 60000 ] && sed -n 4p "$time" && exit
-[ $(toSecond) -ge 60001 ] && [ $(toSecond) -le 64800 ] && sed -n 5p "$time" && exit
-[ $(toSecond) -ge 64801 ] && [ $(toSecond) -le 86400 ] && sed -n 6p "$time" && exit
+next_salah_time
 exit
