@@ -49,4 +49,4 @@ alias tm='tmux a || tmux'
 alias z='zathura'
 alias rsync='rsync --progress'
 
-~/.local/bin/quoter f
+# ~/.local/bin/quoter f
