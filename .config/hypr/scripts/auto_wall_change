@@ -1,0 +1,8 @@
+#!/bin/sh
+
+while true
+do
+    ~/.config/hypr/scripts/wall
+    sleep 900
+done
+

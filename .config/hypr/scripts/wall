@@ -1,0 +1,16 @@
+#!/bin/sh
+
+path="$HOME/Pictures/wal"
+
+cache="$HOME/.cache/wall_cache"
+
+new_wall=$(ls $path | shuf -n 1)
+
+while [ "$(cat $cache)" = "$new_wall" ]
+do
+    new_wall=$(ls $path | shuf -n 1)
+done
+echo "$new_wall" > "$cache"
+
+killall swaybg
+swaybg -m fill -i ${path}/${new_wall} &
