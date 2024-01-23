@@ -5,11 +5,13 @@
   // "width": 1280, // Waybar width
   "spacing": 4, // Gaps between modules (4px)
   // Choose the order of the modules
-  "modules-left": ["hyprland/workspaces"],
+  "modules-left": ["clock", "hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
   // "modules-right": ["pulseaudio",  "tray"],
   "modules-right": [
     "tray",
+    "custom/nett",
+    "custom/sep",
     "battery",
     "backlight",
     "custom/sep",
@@ -17,8 +19,6 @@
     "pulseaudio#microphone",
     "custom/sep",
     "network",
-    "custom/sep",
-    "clock",
   ],
   // Modules configuration
   "wlr/workspaces": {
@@ -45,7 +45,7 @@
     // "format": "{: %R   󰸘%d/%m}",
     // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     // "format": " {:%I:%M %p   %a %d-%m-%y}",
-    "format": " {:%I:%M %p %a %d-%m-%y}",
+    "format": " {:%I:%M %p %a %d-%m-%y} ",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
   },
   "backlight": {
@@ -105,6 +105,12 @@
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "⚠ Disconnected",
     "format-alt": "{ifname}: {ipaddr}/{cidr}"
+  },
+  "custom/nett" : {
+    "format": "{}",
+    "interval" : 1,
+    "tooltip": false,
+    "exec" : "~/.config/waybar/scripts/nettraf",
   },
   "custom/sep" : {
     "format": "|",
