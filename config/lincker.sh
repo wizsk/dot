@@ -4,6 +4,8 @@ conf_dir="$HOME/.config"
 
 for prog in $*; do
 	prog=$(echo "$prog" | sed 's/\/$//')
+	[ -f "$prog" ] && echo -e "$prog is file skipping\n" && continue
+
 	echo "Linking '$prog' files"
 
 	mkdir -p "$conf_dir/$prog"
