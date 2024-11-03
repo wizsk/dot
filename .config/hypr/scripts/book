@@ -1,5 +1,0 @@
-#!/bin/sh
-bk=$(printf "%s\n" $(ls ~/doc/books) | wofi --show dmenu -i)
-
-[ -n "$bk" ] && zathura ~/doc/books/"$bk"
-
