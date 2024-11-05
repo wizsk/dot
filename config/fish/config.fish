@@ -1,4 +1,6 @@
+# bin
 export GOPATH="$HOME/.local/go"
+export GOPATH="$HOME/.local/bin"
 
 set fish_greeting
 
@@ -24,4 +26,5 @@ alias code="codium"
 alias mpv='mpv --save-position-on-quit --resume-playback'
 alias tm='tmux a || tmux'
 alias z='zathura'
+alias zf='zathura --fork'
 alias rsync='rsync --progress'
