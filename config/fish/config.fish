@@ -9,12 +9,18 @@ if test -e "$HOME/.config/fish/local.fish"
     source "$HOME/.config/fish/local.fish"
 end
 
-# PATH
-export GOPATH="$HOME/.local/go"
-export GOPATH="$HOME/.local/bin"
-
 # exports
 export FZF_DEFAULT_OPTS="--layout=reverse --height=30%"
+export MANPAGER='nvim +Man!'
+export ANDROID_HOME="$HOME/.local/android-sdk"
+
+
+# PATH
+# export GOPATH="$HOME/.local/go"
+# export GOROOT="$HOME/.local/go"
+export PATH="$PATH:$HOME/.local/go/bin"
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin/"
 
 alias gd='pwd | wl-copy'
 alias g="git"
@@ -30,8 +36,8 @@ alias bl="bluetoothctl"
 alias wlc="wl-copy"
 alias wlp="wl-paste"
 alias code="codium"
+alias mpva='mpv --script-opts=ytdl_hook-ytdl_path=yt-dlpn'
 alias mpv='mpv --save-position-on-quit --resume-playback'
 alias tm='tmux a || tmux'
-alias z='zathura'
-alias zf='zathura --fork'
+alias z='zathura --fork'
 alias rsync='rsync --progress'
