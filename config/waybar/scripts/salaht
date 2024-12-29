@@ -1,0 +1,88 @@
+#!/bin/sh
+
+# cache path
+path="$HOME/.cache/stime"
+mkdir -p $path
+
+handle0_hour() {
+    # handle hour
+    if [ $(date '+%p') = 'AM' ] && [ $(date '+%l') -le 9 ]
+    then
+        echo $(date '+%l')
+    else
+        echo "$(date '+%H')" 
+    fi
+}
+
+
+# 0[some num] issue with dash not with #!/bin/bash
+handle0_min() {
+    # handle min
+    if [ ! -z $(date '+%M' | grep '^0') ]
+    then
+        echo $(date '+%M' | sed 's/^0//')
+    else
+        echo $(date '+%M')
+    fi 
+}
+
+# get time in second fomat
+toSecond() {
+    hr=$(handle0_hour)
+    min=$(handle0_min)
+    mhr=$((hr*60))
+    min=$((min+mhr))
+    echo "$((min*60))"
+}
+
+get_time() {
+    curl -s 'https://hamariweb.com/islam/tangail_prayer-timing13785.aspx' |
+        grep 'data-label="Fajr"\|data-label="Sunrise"\|data-label="Dhuhr"\|data-label="Asr"\|data-label="Maghrib"\|data-label="Isha"' |
+        sed  's/<td\ data-label="// ; s/">/\ / ; s/<\/td>// ; s/" class="border-0//' > ${path}/new
+
+}
+
+
+if [ ! -f ${path}/new ]
+then
+    get_time
+    tim=$( head -1 < "$path/new" )
+    [ -z "$tim" ] && cat ${path}/new > ${path}/old
+fi
+
+
+
+[ -f ${path}/old ] && old_file_date=$(stat ${path}/old | grep 'Modify' | cut -d ' ' -f 2 | cut -d '-' -f 3 | sed 's/^0//')
+if [ -f ${path}/old ] && [ $(date '+%d' | sed 's/^0//') != ${old_file_date} ]
+then
+    # get time and fotmat it
+    get_time
+fi
+
+
+
+tim=$( head -1 < "$path/new" )
+if [ -z "$tim" ]
+then
+    time=${path}/old
+
+    [ $(toSecond) -ge 1 ] && [ $(toSecond) -le 19200 ] && sed -n 1p "$time" && exit
+    [ $(toSecond) -ge 19260 ] && [ $(toSecond) -le 25200 ] && sed -n 2p "$time" && exit
+    [ $(toSecond) -ge 25201 ] && [ $(toSecond) -le 49200 ] && sed -n 3p "$time" && exit
+    [ $(toSecond) -ge 49201 ] && [ $(toSecond) -le 60000 ] && sed -n 4p "$time" && exit
+    [ $(toSecond) -ge 60001 ] && [ $(toSecond) -le 64800 ] && sed -n 5p "$time" && exit
+    [ $(toSecond) -ge 64801 ] && [ $(toSecond) -le 86400 ] && sed -n 6p "$time" && exit
+    exit
+fi
+
+
+# if net is avialable store it and print it
+cat ${path}/new > ${path}/old
+time=${path}/new
+[ $(toSecond) -ge 1 ] && [ $(toSecond) -le 19200 ] && sed -n 1p "$time" && exit
+[ $(toSecond) -ge 19260 ] && [ $(toSecond) -le 25200 ] && sed -n 2p "$time" && exit
+[ $(toSecond) -ge 25201 ] && [ $(toSecond) -le 49200 ] && sed -n 3p "$time" && exit
+[ $(toSecond) -ge 49201 ] && [ $(toSecond) -le 60000 ] && sed -n 4p "$time" && exit
+[ $(toSecond) -ge 60001 ] && [ $(toSecond) -le 64800 ] && sed -n 5p "$time" && exit
+[ $(toSecond) -ge 64801 ] && [ $(toSecond) -le 86400 ] && sed -n 6p "$time" && exit
+exit
