@@ -36,7 +36,7 @@ alias bl="bluetoothctl"
 alias wlc="wl-copy"
 alias wlp="wl-paste"
 alias code="codium"
-alias mpva='mpv --script-opts=ytdl_hook-ytdl_path=yt-dlpn'
+alias mpva='mpv --script-opts=ytdl_hook-ytdl_path=yt-dlpa'
 alias mpv='mpv --save-position-on-quit --resume-playback'
 alias tm='tmux a || tmux'
 alias z='zathura --fork'
