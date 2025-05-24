@@ -1,13 +1,14 @@
 set fish_greeting
 
-if status is-interactive
-    set -g fish_key_bindings fish_vi_key_bindings
-    function fish_mode_prompt; end
+
+if test -e "$HOME/.config/fish/todo.fish"
+    source "$HOME/.config/fish/todo.fish"
 end
 
 if test -e "$HOME/.config/fish/local.fish"
     source "$HOME/.config/fish/local.fish"
 end
+
 
 # exports
 export FZF_DEFAULT_OPTS="--layout=reverse --height=30%"
@@ -20,6 +21,7 @@ export ANDROID_HOME="$HOME/.local/android-sdk"
 # export GOROOT="$HOME/.local/go"
 export PATH="$PATH:$HOME/.local/go/bin"
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.local/bin-git"
 export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin/"
 
 alias gd='pwd | wl-copy'
@@ -41,3 +43,9 @@ alias mpv='mpv --save-position-on-quit --resume-playback'
 alias tm='tmux a || tmux'
 alias z='zathura --fork'
 alias rsync='rsync --progress'
+
+if status is-interactive
+    set -g fish_key_bindings fish_vi_key_bindings
+    function fish_mode_prompt; end
+    print_todo
+end
