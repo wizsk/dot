@@ -21,7 +21,7 @@ function ci --description 'Check Internet connection'
     end
 end
 
-function mc --description 'make and change the cwd to the given dir'
+function mc --description 'make and cd in new dir'
     set d "$argv[1]"
     mkdir -p "$d" && cd "$d"
 end
@@ -34,6 +34,23 @@ function ze --description 'open zathura fo.pdf && exit'
         exit 0
     else
         echo "err: $f doesn't exit"
+    end
+end
+
+function n --description 'run the command in new process'
+    if ! command -q "$argv[1]"
+        echo "could not find command: $argv[1]"
+        return
+    end
+    nohup $argv &> /dev/null & disown
+end
+
+
+function xo --description 'xournal++ open'
+    if test -e "$argv[1]"
+        xournalpp $argv & disown
+    else
+        echo "file not found: $argv[1]"
     end
 end
 
