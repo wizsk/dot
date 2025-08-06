@@ -1,7 +1,7 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     /* font-family: 'JetBrainsMonoNLj Nerd Font Medium', Roboto, Helvetica, Arial, sans-serif; */
-    font-family: 'JetBrains Mono', Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'JetBrains Mono', sans-serif;
     font-size: 14px;
 }
 

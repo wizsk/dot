@@ -17,8 +17,7 @@ export ANDROID_HOME="$HOME/.local/android-sdk"
 
 
 # PATH
-# export GOPATH="$HOME/.local/go"
-# export GOROOT="$HOME/.local/go"
+export GOPATH="$HOME/.local/go"
 export PATH="$PATH:$HOME/.local/go/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.local/bin-git"

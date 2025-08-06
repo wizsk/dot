@@ -2,15 +2,27 @@
 
 path="$HOME/pix/wal"
 
+if [ ! -d "$path" ]; then
+	echo "no file: $path"
+	exit
+fi
+
 cache="$HOME/.cache/wall_cache"
+
 
 new_wall=$(ls $path | shuf -n 1)
 
-while [ -f "$cache" ] && [ "$(cat $cache)" = "$new_wall" ]
-do
-    new_wall=$(ls $path | shuf -n 1)
-done
-echo "$new_wall" > "$cache"
+if [ -f "$cache" ]; then
+	while [ -f "$cache" ] && [ "$(cat $cache)" = "$new_wall" ]
+	do
+	    new_wall=$(ls $path | shuf -n 1)
+	done
+fi
+
+
+echo "$new_wall" | tee "$cache"
 
 killall swaybg
+
+ln -fs "$path/$new_wall" "$HOME/.cache/current_wall"
 swaybg -m fill -i ${path}/${new_wall} &
