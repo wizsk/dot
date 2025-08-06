@@ -37,11 +37,18 @@ func main() {
 	realodSig := make(chan os.Signal, 1)
 	signal.Notify(realodSig, syscall.SIGUSR2)
 
+	lock := make(chan os.Signal, 1)
+	signal.Notify(lock, syscall.SIGWINCH)
+
 	for {
 		select {
 		case <-realodSig:
 			s = genState()
+
 		case <-switchSig:
+			s.switchl()
+
+		case <-lock:
 			s.switchl()
 		}
 
@@ -129,10 +136,10 @@ func notify(layOut string) {
 }
 
 type Dev struct {
-	Keyboards []Keyboard `json:"keyboards"`
+	Keyboards []_Keyboard `json:"keyboards"`
 }
 
-type Keyboard struct {
+type _Keyboard struct {
 	// ActiveKeymap string `json:"active_keymap"`
 	Main   bool   `json:"main"`
 	Layout string `json:"layout"`
