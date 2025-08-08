@@ -1,5 +1,5 @@
 // sklayout.go aka Switch Keybard layout
-// go build -ldflags "-s -w" sklayout.go
+// CGO_ENABLED=0 go build -ldflags "-s -w" sklayout.go
 
 // add thelse
 // exec = pkill -SIGUSR2 sklayout

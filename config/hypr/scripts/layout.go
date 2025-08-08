@@ -1,5 +1,7 @@
 package main
 
+// CGO_ENABLED=0 go build -ldflags "-s -w" layout.go
+
 import (
 	"bytes"
 	"encoding/json"
