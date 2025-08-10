@@ -46,6 +46,7 @@ alias mpv='mpv --save-position-on-quit --resume-playback'
 alias tm='tmux a || tmux'
 alias z='zathura --fork'
 alias rsync='rsync --progress'
+alias yt-dlp="$HOME/.local/yt-dlp"
 alias q='exit'
 
 if status is-interactive

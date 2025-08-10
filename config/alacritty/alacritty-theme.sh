@@ -8,6 +8,7 @@ td="$d/themes"
 
 # change it to default
 if [ "$1" = "d" ]; then
+	[ -f "$li" ] && echo "already exists: $li" && exit
 	ln -fs "$td/rose_pine.toml" "$li"
 	exit
 fi
