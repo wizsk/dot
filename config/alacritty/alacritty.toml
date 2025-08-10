@@ -1,12 +1,12 @@
 [general]
 import = [
-    "~/.config/alacritty/catppuccin_mocha.toml"
+    "~/.cache/alacritty-theme.toml"
 ]
 
 live_config_reload = true
 
 [window]
-opacity = 0.8
+# opacity = 0.8
 title = "Alacritty"
 
 [colors]
