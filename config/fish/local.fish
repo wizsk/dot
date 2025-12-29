@@ -1,12 +1,15 @@
+# exports
+export FZF_DEFAULT_OPTS="--layout=reverse --height=30%"
+export MANPAGER='nvim +Man!'
 export ANDROID_HOME="$HOME/.local/android-sdk"
-export ANDROID_NDK_HOME="$ANDROID_HOME/ndk/27.2.12479018"
-export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/ndk/27.2.12479018"
-export PATH="$PATH:$HOME/.local/flutter/bin"
-export PATH="$PATH:$HOME/.local/android-studio/bin/"
-export PATH="$PATH:$HOME/.local/kotlin-native-prebuilt-linux-x86_64-2.1.10/bin"
-export PATH="$PATH:$HOME/go/bin"
 
-export PATH="$PATH:$HOME/.local/progs/zed.app/bin"
+
+# go
+export GOPATH="$HOME/.local/share/go"
+export PATH="$PATH:$HOME/.local/go/bin"
+export PATH="$PATH:$HOME/.local/share/go/bin"
+
+export PATH="$PATH:$HOME/.local/bin"
 
 function ob --description 'open books form ~/arabic/books and exit from the shell'
     set n (find ~/books -type f -name '*.pdf' | fzf)
@@ -53,5 +56,3 @@ function xo --description 'xournal++ open'
         echo "file not found: $argv[1]"
     end
 end
-
-test -r ~/.opam/opam-init/init.fish && source ~/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true

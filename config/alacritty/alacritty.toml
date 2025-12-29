@@ -16,7 +16,7 @@ text = '#1E1E2E' # base
 cursor = '#B4BEFE' # lavender
 
 [window]
-opacity = 0.8
+opacity = 0.95
 title = "Alacritty"
 
 [colors]

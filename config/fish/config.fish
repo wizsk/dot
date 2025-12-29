@@ -4,7 +4,6 @@
 
 set fish_greeting
 
-
 if test -e "$HOME/.config/fish/todo.fish"
     source "$HOME/.config/fish/todo.fish"
 end
@@ -13,19 +12,6 @@ if test -e "$HOME/.config/fish/local.fish"
     source "$HOME/.config/fish/local.fish"
 end
 
-
-# exports
-export FZF_DEFAULT_OPTS="--layout=reverse --height=30%"
-export MANPAGER='nvim +Man!'
-export ANDROID_HOME="$HOME/.local/android-sdk"
-
-
-# PATH
-export GOPATH="$HOME/.local/go"
-export PATH="$PATH:$HOME/.local/go/bin"
-export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/.local/bin-git"
-export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin/"
 
 alias gd='pwd | wl-copy'
 alias g="git"
