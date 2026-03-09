@@ -1,15 +1,19 @@
 # exports
 export FZF_DEFAULT_OPTS="--layout=reverse --height=30%"
 export MANPAGER='nvim +Man!'
-export ANDROID_HOME="$HOME/.local/android-sdk"
-
+export PATH="$PATH:$HOME/.local/bin"
+export CHROME_EXECUTABLE=/usr/bin/chromium-browser
 
 # go
 export GOPATH="$HOME/.local/share/go"
-export PATH="$PATH:$HOME/.local/go/bin"
 export PATH="$PATH:$HOME/.local/share/go/bin"
 
-export PATH="$PATH:$HOME/.local/bin"
+# flutter
+export PATH="$PATH:$HOME/.local/flutter/bin"
+
+# android
+export ANDROID_HOME="$HOME/.local/android-sdk"
+export PATH="$PATH:$HOME/.local/cmdline-tools/bin"
 
 function ob --description 'open books form ~/arabic/books and exit from the shell'
     set n (find ~/books -type f -name '*.pdf' | fzf)
@@ -55,4 +59,12 @@ function xo --description 'xournal++ open'
     else
         echo "file not found: $argv[1]"
     end
+end
+
+function mpva --description 'run mpv with ~/.local/yt-dlp'
+    mpv --script-opts=ytdl_hook-ytdl_path=$HOME/.local/yt-dlp
+end
+
+function ut --description 'turn on usb thethering'
+    adb shell svc usb setFunctions rndis
 end
